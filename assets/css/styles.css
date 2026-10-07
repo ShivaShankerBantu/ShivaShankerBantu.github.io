@@ -244,6 +244,8 @@ img[data-zoom] { cursor: zoom-in; }
 
 /* Project page cover */
 .cover { position: relative; isolation: isolate; }
+/* A rotating ring's box grows by up to 41% at 45°, which made the page scroll sideways; clip that sideways only */
+.hero, .cover { overflow-x: clip; }
 .cover-decor { position: absolute; z-index: -1; right: 32px; top: 40px; width: 250px; height: 250px; }
 .cover-decor__ring { position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed var(--accent); opacity: .6; }
 .cover-decor__disc { position: absolute; inset: 52px; border-radius: 50%; background: var(--soft); }
@@ -333,8 +335,6 @@ img[data-zoom] { cursor: zoom-in; }
   transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
 }
 .work-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0, 0, 0, .14); border-color: var(--accent); text-decoration: none; }
-.work-card img { transition: transform .6s var(--ease-out); }
-.work-card:hover img { transform: scale(1.05); }
 
 .feature-card { margin-top: 40px; flex-wrap: wrap; gap: 40px; padding: 40px; }
 .feature-card__copy { flex: 1 1 380px; display: flex; flex-direction: column; gap: 16px; }
@@ -367,11 +367,62 @@ img[data-zoom] { cursor: zoom-in; }
 .project-card p { margin: 0; color: var(--muted); }
 /* Phones: show each screenshot's full width rather than a left-hand crop (Resident app thumb unchanged) */
 @media (max-width: 699px) {
-  .project-card .frame:not(.phones-thumb) { height: auto; aspect-ratio: 16 / 10; }
-  .project-card .frame:not(.phones-thumb) > img { object-position: top; }
+  .project-card .frame { height: auto; aspect-ratio: 16 / 10; }
 }
-.phones-thumb { box-sizing: border-box; display: flex; gap: 12px; justify-content: center; padding: 18px 18px 0; }
-.phones-thumb img { width: 30%; height: 100%; object-fit: cover; object-position: top; border-radius: 12px 12px 0 0; display: block; }
+/* Designed covers: a solid colour from each project's UI, with the screen in a browser frame
+   (desktop projects) or three phones (Resident app), running off the bottom and right edges. */
+/* Each cover is a soft diagonal gradient in the project's own hue: pale tints in light mode,
+   deep versions of the same hues in dark mode. */
+.cover-art { position: relative; background: linear-gradient(135deg, var(--cover-a), var(--cover-b)); container-type: inline-size; }
+.cover-art--bluebox  { --cover-a: #F1F1FD; --cover-b: #D5D6F6; } /* lavender tint from the Blue Box dashboard */
+.cover-art--urban    { --cover-a: #E9F2FC; --cover-b: #BCD8F4; } /* Urban Dental sidebar blue */
+.cover-art--glass    { --cover-a: #F4F8FC; --cover-b: #DCE7F5; } /* Glassreview hero tint */
+.cover-art--web      { --cover-a: #FADAC4; --cover-b: #B4D7E1; } /* Bluebox website coral #E08040 into teal #105070 */
+.cover-art--resident { --cover-a: #FFF6E3; --cover-b: #FADFA4; } /* Resident app amber */
+:root[data-theme="dark"] .cover-art--bluebox  { --cover-a: #2C2E5C; --cover-b: #191A36; }
+:root[data-theme="dark"] .cover-art--urban    { --cover-a: #164A7E; --cover-b: #0C2B4B; }
+:root[data-theme="dark"] .cover-art--glass    { --cover-a: #22344C; --cover-b: #141F2E; }
+:root[data-theme="dark"] .cover-art--web      { --cover-a: #6A3A22; --cover-b: #0F3A4A; }
+:root[data-theme="dark"] .cover-art--resident { --cover-a: #59400F; --cover-b: #2F2208; }
+
+.browser {
+  position: absolute; left: 8%; top: 8%; width: 150%;
+  left: 8cqw; top: 8cqw; width: 150cqw;
+  border-radius: 10px 10px 0 0; overflow: hidden; background: #fff;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .28), 0 2px 6px rgba(0, 0, 0, .12);
+  transition: transform .45s var(--ease-out);
+}
+.browser__bar {
+  height: clamp(10px, 3.2cqw, 18px); padding: 0 clamp(7px, 1.8cqw, 12px);
+  display: flex; align-items: center; gap: clamp(3px, .9cqw, 6px);
+  background: #F1F2F0; border-bottom: 1px solid #E2E4E0;
+}
+.browser__bar span { width: clamp(4px, 1.1cqw, 7px); aspect-ratio: 1; border-radius: 50%; background: #FF5F57; }
+.browser__bar span:nth-child(2) { background: #FEBC2E; }
+.browser__bar span:nth-child(3) { background: #28C840; }
+.browser > img { display: block; width: 100%; height: auto; }
+.work-card:hover .browser { transform: translate(-6px, -6px); }
+
+/* Spacing sits on the phones: cqw units resolve against the cover only for its children */
+.phones-cover { display: flex; justify-content: center; align-items: flex-start; }
+.phones-cover img {
+  flex: none; width: 26cqw; height: auto; display: block; margin: 8cqw 2.5cqw 0;
+  border-radius: 3.6cqw 3.6cqw 0 0; box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+  transition: transform .45s var(--ease-out);
+}
+.phones-cover img:nth-child(1) { order: 2; }
+.phones-cover img:nth-child(2) { order: 1; margin-top: 14cqw; }
+.phones-cover img:nth-child(3) { order: 3; margin-top: 14cqw; }
+.work-card:hover .phones-cover img { transform: translateY(-6px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card:hover .browser, .work-card:hover .phones-cover img { transform: none; }
+}
+/* When a "More work" card stretches full width (tablets), a fixed 220px strip gets too thin for a cover */
+.project-card--sm { container: pcard / inline-size; }
+@container pcard (min-width: 520px) {
+  .project-card--sm .frame { height: auto; aspect-ratio: 16 / 9; max-height: 360px; }
+}
 
 .about { display: flex; flex-wrap: wrap; gap: 48px 80px; }
 .about-lead { flex: 1 1 380px; }
