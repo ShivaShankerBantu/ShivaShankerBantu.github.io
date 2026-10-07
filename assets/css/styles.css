@@ -418,6 +418,99 @@ img[data-zoom] { cursor: zoom-in; }
 @media (prefers-reduced-motion: reduce) {
   .work-card:hover .browser, .work-card:hover .phones-cover img { transform: none; }
 }
+/* ---------- Laptop mockup for project page heroes ----------
+   Drawn in CSS: black bezel with a silver rim, wider silver base with the opening notch.
+   Sits on the project's cover gradient (the cover-art--* class supplies --cover-a / --cover-b). */
+.device-stage {
+  border-radius: 24px; overflow: hidden;
+  background: linear-gradient(135deg, var(--cover-a), var(--cover-b));
+  padding: clamp(28px, 5.5%, 64px) 4% clamp(28px, 4.5%, 52px);
+  display: flex; justify-content: center;
+}
+.laptop { width: min(72%, 860px); container-type: inline-size; transition: transform .45s var(--ease-out); }
+.device-stage:hover .laptop { transform: translateY(-4px); }
+.laptop__lid {
+  position: relative; background: #0C0D0F; padding: 3cqw 3cqw 3.6cqw;
+  border-radius: 3.2cqw 3.2cqw 0 0;
+  box-shadow: 0 0 0 .35cqw #C9CBD0, 0 0 0 .5cqw #8E9096, 0 3cqw 6cqw rgba(0, 0, 0, .22);
+}
+.laptop__lid::before { /* camera */
+  content: ""; position: absolute; top: 1.3cqw; left: 50%; width: .8cqw; aspect-ratio: 1;
+  transform: translateX(-50%); border-radius: 50%; background: #2B2D31;
+}
+.laptop__screen { aspect-ratio: 16 / 10; overflow: hidden; border-radius: .6cqw; background: #fff; }
+.laptop__screen > img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.laptop__base {
+  position: relative; width: 114%; margin-left: -7%; height: 2.6cqw;
+  border-radius: 0 0 1.8cqw 1.8cqw / 0 0 2.4cqw 2.4cqw;
+  background: linear-gradient(180deg, #E9EAEC 0%, #CFD1D5 45%, #9C9EA3 100%);
+  box-shadow: 0 1.6cqw 3cqw rgba(0, 0, 0, .25);
+}
+.laptop__base::before { /* opening notch */
+  content: ""; position: absolute; top: 0; left: 50%; width: 15%; height: 42%;
+  transform: translateX(-50%); border-radius: 0 0 1.2cqw 1.2cqw; background: #A9ABB0;
+}
+/* Fade variant: no top edge. The gradient sits on a layer that is masked from invisible at the top
+   to full strength about 60% down, so it rises out of the page background in either theme. */
+.device-stage--fade { border-radius: 0 0 24px 24px; }
+/* Light mode adds a deeper third stop (--cover-deep) so the faded base still reads against the page;
+   dark mode keeps its two stops (the deep hues already glow against the dark page). */
+.cover-art--bluebox  { --cover-deep: #B3B6F0; }
+.cover-art--urban    { --cover-deep: #93BEEB; }
+.cover-art--glass    { --cover-deep: #B6CBEA; }
+.cover-art--web      { --cover-deep: #8CC2D1; }
+.cover-art--resident { --cover-deep: #F4C25E; }
+:root[data-theme="dark"] [class*="cover-art--"] { --cover-deep: var(--cover-b); }
+/* The page colour is layered over the project gradient, eased from solid at the top to clear ~60% down.
+   Painted as the stage's own background, so it stays put when the phone row scrolls sideways. */
+.device-stage--fade {
+  background:
+    linear-gradient(to bottom,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 88%, transparent) 14%,
+      color-mix(in srgb, var(--bg) 58%, transparent) 30%,
+      color-mix(in srgb, var(--bg) 20%, transparent) 46%,
+      transparent 60%),
+    linear-gradient(135deg, var(--cover-a), var(--cover-b) 50%, var(--cover-deep));
+}
+
+/* A laptop screen that scrolls (Bluebox website shows its whole home page) */
+.laptop__screen.scroll-frame { overflow-y: auto; }
+.laptop__screen.scroll-frame > img { height: auto; }
+
+/* Phone mockup: same black bezel and silver rim as the laptop, with a camera pill */
+.device-stage--phones { align-items: flex-start; gap: clamp(16px, 2.6%, 32px); padding-bottom: clamp(32px, 5%, 56px); }
+/* .phone-mock only sets the size (it is the cqw container); the bezel lives on .phone-mock__body */
+.phone-mock { flex: none; width: clamp(120px, 19%, 210px); container-type: inline-size; transition: transform .45s var(--ease-out); }
+.phone-mock--low { margin-top: 48px; }
+.phone-mock__body {
+  position: relative; padding: 3.6cqw; border-radius: 15cqw; background: #0C0D0F;
+  box-shadow: 0 0 0 1.2cqw #C9CBD0, 0 0 0 1.7cqw #8E9096, 0 6cqw 12cqw rgba(0, 0, 0, .24);
+}
+.phone-mock__body::before { /* camera pill */
+  content: ""; position: absolute; z-index: 1; top: 6.4cqw; left: 50%; width: 26cqw; height: 7.4cqw;
+  transform: translateX(-50%); border-radius: 99px; background: #0C0D0F;
+}
+.phone-mock__screen { aspect-ratio: 786 / 1710; overflow: hidden; border-radius: 11.5cqw; background: #fff; }
+.phone-mock__screen > img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.device-stage:hover .phone-mock { transform: translateY(-4px); }
+
+@media (max-width: 699px) {
+  .device-stage { border-radius: 18px; padding: 28px 5% 26px; }
+  .device-stage--fade { border-radius: 0 0 18px 18px; }
+  .laptop { width: 88%; }
+  /* Phones row scrolls sideways on phones (data-carousel); keep each device a comfortable size */
+  .device-stage--phones[data-carousel] { padding: 28px 16px 32px; gap: 20px; }
+  .device-stage--phones[data-carousel] > .phone-mock { flex: 0 0 52vw; width: 52vw; height: auto; }
+  .device-stage--phones .phone-mock--low { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .device-stage:hover .phone-mock { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .device-stage:hover .laptop { transform: none; }
+}
+
 /* When a "More work" card stretches full width (tablets), a fixed 220px strip gets too thin for a cover */
 .project-card--sm { container: pcard / inline-size; }
 @container pcard (min-width: 520px) {
@@ -518,9 +611,6 @@ img[data-zoom] { cursor: zoom-in; }
 .phone-stage--lg { padding: 48px 32px; }
 .phone--476 { height: 476px; }
 .phone--240 { width: 240px; height: 520px; }
-.phone-hero { padding: 56px 32px 0; border-radius: 24px; overflow: hidden; background: var(--soft); display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; align-items: flex-end; }
-.phone-hero .phone { width: 230px; height: 440px; border-radius: 28px 28px 0 0; border-bottom: 0; }
-.phone-hero .phone--tall { height: 500px; }
 .media-split { display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: center; }
 .media-split__text { flex: 1 1 320px; }
 .media-split__stage { flex: 1.3 1 520px; }
@@ -570,9 +660,6 @@ img[data-zoom] { cursor: zoom-in; }
   [data-carousel] > .phone { width: 70vw; height: auto; aspect-ratio: 220 / 478; }
   [data-carousel] > .phone--240 { aspect-ratio: 240 / 520; }
   [data-carousel] .phone-item > .phone { width: 100%; height: auto; aspect-ratio: 220 / 476; }
-  .phone-hero[data-carousel] { padding-top: 32px; }
-  .phone-hero[data-carousel] > .phone { aspect-ratio: 230 / 440; }
-  .phone-hero[data-carousel] > .phone--tall { aspect-ratio: 230 / 500; }
   .phone-stage--lg[data-carousel] { padding-top: 40px; padding-bottom: 40px; }
 }
 
