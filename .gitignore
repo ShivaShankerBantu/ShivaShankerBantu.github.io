@@ -43,3 +43,8 @@ desktop.ini
 coverage/
 *.tmp
 .sass-cache/
+
+# Working files: kept on this computer, never published
+/design-reference/
+/Images/
+/BUILD-BRIEF.md

@@ -1,0 +1,6 @@
+# Never convert line endings in binary files
+*.pdf  binary
+*.webp binary
+*.png  binary
+*.jpg  binary
+*.svg  text eol=lf
