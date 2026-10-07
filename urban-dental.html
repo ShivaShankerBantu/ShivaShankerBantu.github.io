@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=4">
-<script src="assets/js/main.js"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
+<script src="assets/js/main.js?v=2"></script>
 </head>
 <body class="page-urban-dental">
 <site-header></site-header>
@@ -110,24 +110,18 @@
 </div>
 </section>
 
-<section class="wrap pt-96 pb-0">
+<section class="wrap pt-96 pb-0" data-tabs>
 <div class="eyebrow"><span class="badge">A</span><span>Final designs</span></div>
 <h2 class="h2 h2--48 mt-12">The web app</h2>
 <p class="intro">Blue and white throughout, for the calm, clean feel people expect from a medical product, set in Poppins.</p>
-
-<div class="feature-row mt-56">
-<div class="feature-row__text"><div class="feature-row__n">01</div><div class="feature-row__title">Appointments</div><p>Today's, tomorrow's and upcoming bookings in one list. Each shows its status, from waiting in reception to complete.</p></div>
-<div class="feature-row__shot frame frame--20 shot"><img src="assets/img/urban-dental-appointments.webp" alt="Urban Dental appointments list" width="1707" height="1056" loading="lazy" data-zoom></div>
+<div class="tabs" role="tablist" aria-label="Choose a web app screen">
+<button class="tab" type="button" role="tab" id="tab-appointments" aria-selected="true" aria-controls="webapp-panel" data-n="01" data-src="assets/img/urban-dental-appointments.webp" data-w="1707" data-h="1056" data-alt="Urban Dental appointments list" data-note="Today's, tomorrow's and upcoming bookings in one list. Each shows its status, from waiting in reception to complete.">Appointments</button>
+<button class="tab" type="button" role="tab" id="tab-availability" aria-selected="false" aria-controls="webapp-panel" tabindex="-1" data-n="02" data-src="assets/img/urban-dental-availability.webp" data-w="1707" data-h="1081" data-alt="Urban Dental availability settings" data-note="The dentist sets the hours they can be booked, how long each slot runs and how often it repeats. This answers the scheduling problem patients described.">My Availability</button>
+<button class="tab" type="button" role="tab" id="tab-patients" aria-selected="false" aria-controls="webapp-panel" tabindex="-1" data-n="03" data-src="assets/img/urban-dental-patients.webp" data-w="1707" data-h="1056" data-alt="Urban Dental patient information" data-note="Each patient's profile, vitals and history in one place, with the common tasks one click away. It replaces the paper records.">My Patients</button>
 </div>
-
-<div class="feature-row mt-56">
-<div class="feature-row__text"><div class="feature-row__n">02</div><div class="feature-row__title">My Availability</div><p>The dentist sets the hours they can be booked, how long each slot runs and how often it repeats. This answers the scheduling problem patients described.</p></div>
-<div class="feature-row__shot frame frame--20 shot"><img src="assets/img/urban-dental-availability.webp" alt="Urban Dental availability settings" width="1707" height="1081" loading="lazy" data-zoom></div>
-</div>
-
-<div class="feature-row mt-56">
-<div class="feature-row__text"><div class="feature-row__n">03</div><div class="feature-row__title">My Patients</div><p>Each patient's profile, vitals and history in one place, with the common tasks one click away. It replaces the paper records.</p></div>
-<div class="feature-row__shot frame frame--20 shot"><img src="assets/img/urban-dental-patients.webp" alt="Urban Dental patient information" width="1707" height="1056" loading="lazy" data-zoom></div>
+<div id="webapp-panel" role="tabpanel" aria-label="Selected web app screen" class="feature-row mt-32">
+<div class="feature-row__text"><div class="feature-row__n" data-tab-n>01</div><div class="feature-row__title" data-tab-title>Appointments</div><p data-tab-note>Today's, tomorrow's and upcoming bookings in one list. Each shows its status, from waiting in reception to complete.</p></div>
+<div class="feature-row__shot frame frame--20 shot"><img src="assets/img/urban-dental-appointments.webp" alt="Urban Dental appointments list" width="1707" height="1056" loading="lazy" data-zoom data-tab-image></div>
 </div>
 </section>
 

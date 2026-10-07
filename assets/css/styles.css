@@ -580,6 +580,7 @@ img[data-zoom] { cursor: zoom-in; }
 .ratio-glass { aspect-ratio: 1440 / 1024; }
 .ratio-web { aspect-ratio: 1512 / 1000; }
 .ratio-chart { aspect-ratio: 1867 / 1324; }
+.ratio-portal { aspect-ratio: 1662 / 1028; } /* Blue Box tab viewer: one shape for all four screens, so switching tabs doesn't jump */
 .frame--shadow { box-shadow: 0 18px 48px rgba(0, 0, 0, .10); }
 .shot-item { display: flex; flex-direction: column; gap: 12px; }
 .shot-item--full { flex: 1 1 100%; }

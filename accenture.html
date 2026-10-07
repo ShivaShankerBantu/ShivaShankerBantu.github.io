@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=4">
-<script src="assets/js/main.js"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
+<script src="assets/js/main.js?v=2"></script>
 </head>
 <body class="page-accenture">
 <site-header></site-header>
@@ -69,15 +69,15 @@
 <p class="intro">Four states, start to finish. Pick a state to see what happens there.</p>
 <div class="stepper" data-stepper>
 <div class="stepper__states" role="group" aria-label="Deployment states">
-<button class="step is-passed" type="button" data-label="Not started" data-note="The deployment has been created in the portal, but work on it hasn't begun. It sits in the list where the whole team can see it, so nothing is forgotten before it starts."><span class="step__dot">01</span><span class="step__label">Not started</span></button>
-<button class="step is-passed" type="button" aria-current="step" data-label="Ready to deploy" data-note="The preparation is done and the deployment is waiting to go out. Moving it to this state sends it to an approver, who signs it off before anything is deployed."><span class="step__dot">02</span><span class="step__label">Ready to deploy</span></button>
+<button class="step is-passed" type="button" aria-current="step" data-label="Not started" data-note="The deployment has been created in the portal, but work on it hasn't begun. It sits in the list where the whole team can see it, so nothing is forgotten before it starts."><span class="step__dot">01</span><span class="step__label">Not started</span></button>
+<button class="step" type="button" data-label="Ready to deploy" data-note="The preparation is done and the deployment is waiting to go out. Moving it to this state sends it to an approver, who signs it off before anything is deployed."><span class="step__dot">02</span><span class="step__label">Ready to deploy</span></button>
 <button class="step" type="button" data-label="Deployed under testing" data-note="The deployment has gone out and is being verified. The portal reads the results from the back end and checks that everything is working as it should."><span class="step__dot">03</span><span class="step__label">Deployed under testing</span></button>
 <button class="step" type="button" data-label="Completed" data-note="The checks have passed and the deployment is closed. The portal moves it here on its own, so nobody has to update a status by hand."><span class="step__dot">04</span><span class="step__label">Completed</span></button>
 </div>
 <div class="stepper__panel" aria-live="polite">
-<div class="kicker" data-step-kicker>State 2 of 4</div>
-<div class="stepper__label" data-step-label>Ready to deploy</div>
-<p class="stepper__note" data-step-note>The preparation is done and the deployment is waiting to go out. Moving it to this state sends it to an approver, who signs it off before anything is deployed.</p>
+<div class="kicker" data-step-kicker>State 1 of 4</div>
+<div class="stepper__label" data-step-label>Not started</div>
+<p class="stepper__note" data-step-note>The deployment has been created in the portal, but work on it hasn't begun. It sits in the list where the whole team can see it, so nothing is forgotten before it starts.</p>
 </div>
 </div>
 </section>

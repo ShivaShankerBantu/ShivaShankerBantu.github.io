@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=4">
-<script src="assets/js/main.js"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
+<script src="assets/js/main.js?v=2"></script>
 </head>
 <body class="page-blue-box">
 <site-header></site-header>
@@ -109,16 +109,15 @@
 <section class="wrap pt-96 pb-0" data-tabs>
 <div class="eyebrow"><span class="badge">A</span><span>Final designs</span></div>
 <h2 class="h2 h2--48 mt-12">Web portal</h2>
-<p class="intro">Four screens from the portal. Pick one to see it.</p>
+<p class="intro">Screens from the portal. Pick one to see it.</p>
 <div class="tabs" role="tablist" aria-label="Choose a portal screen">
-<button class="tab" type="button" role="tab" id="tab-dashboard" aria-selected="false" aria-controls="portal-panel" tabindex="-1" data-src="assets/img/bluebox-dashboard.webp" data-w="1662" data-h="1028" data-alt="Blue Box portal dashboard" data-note="Dashboard: quick links, services, reported issues and the calendar on one screen.">Dashboard</button>
-<button class="tab" type="button" role="tab" id="tab-community" aria-selected="true" aria-controls="portal-panel" data-src="assets/img/bluebox-community.webp" data-w="1708" data-h="1057" data-alt="Blue Box My Community overview" data-note="My Community: an overview of the community with its calendar, documents and facilities.">My Community</button>
-<button class="tab" type="button" role="tab" id="tab-finance" aria-selected="false" aria-controls="portal-panel" tabindex="-1" data-src="assets/img/bluebox-finance.webp" data-w="1707" data-h="1083" data-alt="Blue Box finance list" data-note="Finance: what is payable now, and every invoice with its amount and due date.">Finance</button>
-<button class="tab" type="button" role="tab" id="tab-market" aria-selected="false" aria-controls="portal-panel" tabindex="-1" data-src="assets/img/bluebox-marketplace.webp" data-w="1188" data-h="1197" data-alt="Blue Box marketplace details" data-note="Marketplace: a listing with its details, the seller and related items.">Marketplace</button>
+<button class="tab" type="button" role="tab" id="tab-dashboard" aria-selected="true" aria-controls="portal-panel" data-n="01" data-src="assets/img/bluebox-dashboard.webp" data-w="1662" data-h="1028" data-alt="Blue Box portal dashboard" data-note="Quick links, services, reported issues and the calendar on one screen.">Dashboard</button>
+<button class="tab" type="button" role="tab" id="tab-community" aria-selected="false" aria-controls="portal-panel" tabindex="-1" data-n="02" data-src="assets/img/bluebox-community.webp" data-w="1708" data-h="1057" data-alt="Blue Box My Community overview" data-note="An overview of the community with its calendar, documents and facilities.">My Community</button>
+<button class="tab" type="button" role="tab" id="tab-market" aria-selected="false" aria-controls="portal-panel" tabindex="-1" data-n="03" data-src="assets/img/bluebox-marketplace.webp?v=2" data-w="1188" data-h="1197" data-alt="Blue Box marketplace details" data-note="A listing with its details, the seller and related items.">Marketplace</button>
 </div>
-<div id="portal-panel" role="tabpanel" aria-label="Selected portal screen">
-<div class="frame shot mt-20"><img src="assets/img/bluebox-community.webp" alt="Blue Box My Community overview" width="1708" height="1057" loading="lazy" data-zoom data-tab-image></div>
-<p class="muted" style="margin: 14px 0 0" data-tab-note>My Community: an overview of the community with its calendar, documents and facilities.</p>
+<div id="portal-panel" role="tabpanel" aria-label="Selected portal screen" class="feature-row mt-32">
+<div class="feature-row__text"><div class="feature-row__n" data-tab-n>01</div><div class="feature-row__title" data-tab-title>Dashboard</div><p data-tab-note>Quick links, services, reported issues and the calendar on one screen.</p></div>
+<div class="feature-row__shot frame frame--20 ratio-portal shot"><img class="fill-top-left" src="assets/img/bluebox-dashboard.webp" alt="Blue Box portal dashboard" width="1662" height="1028" loading="lazy" data-zoom data-tab-image></div>
 </div>
 </section>
 

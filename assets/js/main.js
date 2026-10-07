@@ -233,6 +233,9 @@
       var tabs = Array.prototype.slice.call(viewer.querySelectorAll('[role="tab"]'));
       var img = viewer.querySelector('[data-tab-image]');
       var note = viewer.querySelector('[data-tab-note]');
+      // Optional: a number and title that change with the tab (Urban Dental)
+      var num = viewer.querySelector('[data-tab-n]');
+      var title = viewer.querySelector('[data-tab-title]');
 
       function select(tab, focus) {
         tabs.forEach(function (t) {
@@ -246,6 +249,8 @@
         img.height = +tab.getAttribute('data-h');
         img.setAttribute('aria-label', 'Enlarge image: ' + img.alt);
         note.textContent = tab.getAttribute('data-note');
+        if (num) num.textContent = tab.getAttribute('data-n');
+        if (title) title.textContent = tab.textContent;
         if (focus) tab.focus();
       }
 
