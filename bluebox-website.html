@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=5">
-<script src="assets/js/main.js?v=2"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=11">
+<script src="assets/js/main.js?v=4"></script>
 </head>
 <body class="page-bluebox-website">
 <site-header></site-header>
@@ -58,13 +58,23 @@
 <div class="eyebrow"><span class="badge">A</span><span>Module pages</span></div>
 <h2 class="h2 h2--48 mt-12">One page per module</h2>
 <p class="intro">Each module has its own page built from the same parts, so a visitor who has read one knows how to read the rest.</p>
-<div class="row mt-32" data-stagger>
-<div class="shot-item shot-item--half"><div class="frame frame--20 ratio-web shot"><img class="fill-top-left" src="assets/img/website-community.webp" alt="Community management page" width="1512" height="4644" loading="lazy" data-zoom></div><div class="fw-600">Community management</div></div>
-<div class="shot-item shot-item--half"><div class="frame frame--20 ratio-web shot"><img class="fill-top-left" src="assets/img/website-property.webp" alt="Property management page" width="1512" height="6235" loading="lazy" data-zoom></div><div class="fw-600">Property management</div></div>
-<div class="shot-item shot-item--half"><div class="frame frame--20 ratio-web shot"><img class="fill-top-left" src="assets/img/website-facility.webp" alt="Facility management page" width="1512" height="6235" loading="lazy" data-zoom></div><div class="fw-600">Facility management</div></div>
-<div class="shot-item shot-item--half"><div class="frame frame--20 ratio-web shot"><img class="fill-top-left" src="assets/img/website-finance.webp" alt="Finance management page" width="1512" height="5587" loading="lazy" data-zoom></div><div class="fw-600">Finance management</div></div>
-<div class="shot-item shot-item--half"><div class="frame frame--20 ratio-web shot"><img class="fill-top-left" src="assets/img/website-crm.webp" alt="CRM page" width="1512" height="5544" loading="lazy" data-zoom></div><div class="fw-600">CRM</div></div>
-<div class="shot-item shot-item--half"><div class="frame frame--20 ratio-web shot"><img class="fill-top-left" src="assets/img/website-estore.webp" alt="E-store page" width="1512" height="5362" loading="lazy" data-zoom></div><div class="fw-600">E-store</div></div>
+<div class="coverflow mt-32" data-coverflow>
+<div class="coverflow__clip">
+<div class="coverflow__track" tabindex="0" aria-roledescription="carousel" aria-label="Module pages">
+<button class="coverflow__slide" type="button" data-title="Community management" data-note="The module page that introduces community management, with the main benefit up front and a clear call to book a demo."><img src="assets/img/website-community.webp" alt="Community management page" width="1512" height="4644"></button>
+<button class="coverflow__slide" type="button" data-title="Property management" data-note="Built from the same parts as every module page, so a visitor who has read one page knows how to read the rest."><img src="assets/img/website-property.webp" alt="Property management page" width="1512" height="6235" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Facility management" data-note="Introduces facility management with a single headline, a short explanation and one call to action."><img src="assets/img/website-facility.webp" alt="Facility management page" width="1512" height="6235" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Finance management" data-note="Presents the finance module in the same structure, with a brighter colour to set it apart."><img src="assets/img/website-finance.webp" alt="Finance management page" width="1512" height="5587" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="CRM" data-note="The CRM module page, following the shared layout so the whole site feels like one product."><img src="assets/img/website-crm.webp" alt="CRM page" width="1512" height="5544" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="E-store" data-note="Introduces the community e-store, closing the set of six module pages."><img src="assets/img/website-estore.webp" alt="E-store page" width="1512" height="5362" loading="lazy"></button>
+</div>
+</div>
+<div class="coverflow__nav">
+<button class="coverflow__arrow" type="button" data-go="-1" aria-label="Previous screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+<div class="coverflow__dots"></div>
+<button class="coverflow__arrow" type="button" data-go="1" aria-label="Next screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+<div class="coverflow__caption" aria-live="polite"><div class="coverflow__title">Community management</div><p class="coverflow__note">The module page that introduces community management, with the main benefit up front and a clear call to book a demo.</p></div>
 </div>
 </section>
 

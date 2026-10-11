@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=5">
-<script src="assets/js/main.js?v=2"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=11">
+<script src="assets/js/main.js?v=4"></script>
 </head>
 <body class="page-glassreview">
 <site-header></site-header>
@@ -57,10 +57,20 @@
 <div class="eyebrow"><span class="badge">A</span><span>Flow one</span></div>
 <h2 class="h2 h2--48 mt-12">The guest employer</h2>
 <p class="intro">An employer who hasn't signed up yet can search for people, compare them side by side and open a profile, before deciding to create an account.</p>
-<div class="row row--48 mt-32" data-stagger>
-<div class="shot-item shot-item--full"><div class="frame frame--20 frame--shadow ratio-glass shot"><img class="fill-top-left" src="assets/img/glassreview-discover.webp" alt="Glassreview Discover Employee screen" width="1440" height="1790" loading="lazy" data-zoom></div><div class="fw-600">Discover</div></div>
-<div class="shot-item shot-item--full"><div class="frame frame--20 frame--shadow ratio-glass shot"><img class="fill-top-left" src="assets/img/glassreview-compare.webp" alt="Glassreview Compare Employee screen" width="1440" height="1972" loading="lazy" data-zoom></div><div class="fw-600">Compare</div></div>
-<div class="shot-item shot-item--full"><div class="frame frame--20 frame--shadow ratio-glass shot"><img class="fill-top-left" src="assets/img/glassreview-detail.webp" alt="Glassreview employee detail screen" width="1440" height="1972" loading="lazy" data-zoom></div><div class="fw-600">Employee detail</div></div>
+<div class="coverflow mt-32" data-coverflow>
+<div class="coverflow__clip">
+<div class="coverflow__track" tabindex="0" aria-roledescription="carousel" aria-label="Flow one screens">
+<button class="coverflow__slide" type="button" data-title="Discover" data-note="Guest employers search for people and narrow the list by skills, language and job type, with ratings visible in every result."><img src="assets/img/glassreview-discover.webp" alt="Glassreview Discover Employee screen" width="1440" height="1790"></button>
+<button class="coverflow__slide" type="button" data-title="Compare" data-note="Two or more people side by side, so an employer can weigh experience and ratings without switching between profiles."><img src="assets/img/glassreview-compare.webp" alt="Glassreview Compare Employee screen" width="1440" height="1972" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Employee detail" data-note="One person's full profile, with their ratings, experience and the reviews past employers have left."><img src="assets/img/glassreview-detail.webp" alt="Glassreview employee detail screen" width="1440" height="1972" loading="lazy"></button>
+</div>
+</div>
+<div class="coverflow__nav">
+<button class="coverflow__arrow" type="button" data-go="-1" aria-label="Previous screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+<div class="coverflow__dots"></div>
+<button class="coverflow__arrow" type="button" data-go="1" aria-label="Next screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+<div class="coverflow__caption" aria-live="polite"><div class="coverflow__title">Discover</div><p class="coverflow__note">Guest employers search for people and narrow the list by skills, language and job type, with ratings visible in every result.</p></div>
 </div>
 </section>
 
@@ -68,10 +78,20 @@
 <div class="eyebrow"><span class="badge">B</span><span>Flow two</span></div>
 <h2 class="h2 h2--48 mt-12">Internal review and rating</h2>
 <p class="intro">Once signed in, an employer reviews and rates their own people, answers review requests and messages other employers.</p>
-<div class="row row--48 mt-32" data-stagger>
-<div class="shot-item shot-item--full"><div class="frame frame--20 frame--shadow ratio-glass shot"><img class="fill-top-left" src="assets/img/glassreview-home.webp" alt="Glassreview signed-in home screen" width="1440" height="3490" loading="lazy" data-zoom></div><div class="fw-600">Home</div></div>
-<div class="shot-item shot-item--full"><div class="frame frame--20 frame--shadow ratio-glass shot"><img class="fill-top-left" src="assets/img/glassreview-review.webp" alt="Glassreview reviews list" width="1440" height="2069" loading="lazy" data-zoom></div><div class="fw-600">Reviews</div></div>
-<div class="shot-item shot-item--full"><div class="frame frame--20 frame--shadow ratio-glass shot"><img class="fill-top-left" src="assets/img/glassreview-employee-review.webp" alt="Glassreview write a review dialog" width="1440" height="2449" loading="lazy" data-zoom></div><div class="fw-600">Writing a review</div></div>
+<div class="coverflow mt-32" data-coverflow>
+<div class="coverflow__clip">
+<div class="coverflow__track" tabindex="0" aria-roledescription="carousel" aria-label="Flow two screens">
+<button class="coverflow__slide" type="button" data-title="Home" data-note="Once signed in, employers land on an overview of their people, their reviews and the requests waiting for them."><img src="assets/img/glassreview-home.webp" alt="Glassreview signed-in home screen" width="1440" height="3490"></button>
+<button class="coverflow__slide" type="button" data-title="Reviews" data-note="Every review an employer has written or received, in one list that is easy to scan and filter."><img src="assets/img/glassreview-review.webp" alt="Glassreview reviews list" width="1440" height="2069" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Writing a review" data-note="A short, guided form for rating and reviewing an employee, kept to a single step."><img src="assets/img/glassreview-employee-review.webp" alt="Glassreview write a review dialog" width="1440" height="2449" loading="lazy"></button>
+</div>
+</div>
+<div class="coverflow__nav">
+<button class="coverflow__arrow" type="button" data-go="-1" aria-label="Previous screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+<div class="coverflow__dots"></div>
+<button class="coverflow__arrow" type="button" data-go="1" aria-label="Next screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+<div class="coverflow__caption" aria-live="polite"><div class="coverflow__title">Home</div><p class="coverflow__note">Once signed in, employers land on an overview of their people, their reviews and the requests waiting for them.</p></div>
 </div>
 </section>
 

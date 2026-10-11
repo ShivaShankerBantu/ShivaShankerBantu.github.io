@@ -48,3 +48,8 @@ coverage/
 /design-reference/
 /Images/
 /BUILD-BRIEF.md
+
+# Raw concept files (contain real names) - never commit
+Concept/
+Concept-clean/
+Concept-modern/

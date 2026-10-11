@@ -427,7 +427,8 @@ img[data-zoom] { cursor: zoom-in; }
   padding: clamp(28px, 5.5%, 64px) 4% clamp(28px, 4.5%, 52px);
   display: flex; justify-content: center;
 }
-.laptop { width: min(72%, 860px); container-type: inline-size; transition: transform .45s var(--ease-out); }
+/* Width is also capped by window height so the whole laptop fits on one screen (laptop height is about 0.68 x its width) */
+.laptop { width: min(72%, 860px, max(280px, calc((100vh - 236px) * 1.47))); width: min(72%, 860px, max(280px, calc((100svh - 236px) * 1.47))); container-type: inline-size; transition: transform .45s var(--ease-out); }
 .device-stage:hover .laptop { transform: translateY(-4px); }
 .laptop__lid {
   position: relative; background: #0C0D0F; padding: 3cqw 3cqw 3.6cqw;
@@ -498,7 +499,7 @@ img[data-zoom] { cursor: zoom-in; }
 @media (max-width: 699px) {
   .device-stage { border-radius: 18px; padding: 28px 5% 26px; }
   .device-stage--fade { border-radius: 0 0 18px 18px; }
-  .laptop { width: 88%; }
+  .laptop { width: min(88%, max(240px, calc((100svh - 200px) * 1.47))); }
   /* Phones row scrolls sideways on phones (data-carousel); keep each device a comfortable size */
   .device-stage--phones[data-carousel] { padding: 28px 16px 32px; gap: 20px; }
   .device-stage--phones[data-carousel] > .phone-mock { flex: 0 0 52vw; width: 52vw; height: auto; }
@@ -663,6 +664,55 @@ img[data-zoom] { cursor: zoom-in; }
   [data-carousel] .phone-item > .phone { width: 100%; height: auto; aspect-ratio: 220 / 476; }
   .phone-stage--lg[data-carousel] { padding-top: 40px; padding-bottom: 40px; }
 }
+
+/* ---------- Accenture: concept redesign ---------- */
+.concept-caption { margin-top: 14px; }
+.concept-caption p { margin: 0; color: var(--muted); }
+/* Accenture has no project colour, so its device stage uses the site's teal accent */
+.cover-art--accenture { --cover-a: #EEF6F4; --cover-b: #D3E8E3; --cover-deep: #A9D3C9; }
+:root[data-theme="dark"] .cover-art--accenture { --cover-a: #164A43; --cover-b: #0C2925; }
+
+/* Coverflow carousel: the current screen in front, neighbours scaled down behind it.
+   The clip extends into the page gutters and clips sideways only, so side screens never cause page scroll. */
+.coverflow__clip { container-type: inline-size; overflow-x: clip; margin-left: -32px; margin-right: -32px; padding: 24px 0; }
+/* Soft fade on the far left and right (about 8% each side) so the outer screens dissolve instead of ending at a hard edge.
+   Only the screens area is masked; the arrows, dots and caption sit outside it. */
+.coverflow__clip {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+/* Height from the clip width (cqw), capped; an aspect-ratio + max-height here would also shrink the width */
+.coverflow__track { position: relative; height: min(47.5cqw, 500px, max(220px, calc(100vh - 300px))); height: min(47.5cqw, 500px, max(220px, calc(100svh - 300px))); touch-action: pan-y; user-select: none; -webkit-user-select: none; outline-offset: 6px; border-radius: 18px; }
+.coverflow__slide {
+  position: absolute; left: 50%; top: 50%; width: min(76%, 800px, max(352px, calc((100vh - 300px) * 1.6))); width: min(76%, 800px, max(352px, calc((100svh - 300px) * 1.6))); aspect-ratio: 16 / 10;
+  padding: 0; border: 0; border-radius: 18px; overflow: hidden; background: var(--surface); cursor: pointer;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 30px 70px rgba(18, 22, 21, .18), 0 0 0 1px var(--line);
+  transition: transform .6s var(--ease-out), opacity .6s ease, filter .6s ease;
+}
+.coverflow__slide.is-front { cursor: zoom-in; }
+.coverflow__slide img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; pointer-events: none; }
+:root[data-theme="dark"] .coverflow__slide { box-shadow: 0 30px 70px rgba(0, 0, 0, .45), 0 0 0 1px var(--line); }
+.coverflow__nav { margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.coverflow__arrow {
+  width: 44px; height: 44px; flex: none; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.coverflow__arrow:hover { border-color: var(--fg); transform: translateY(-2px); }
+.coverflow__dots { display: flex; gap: 8px; }
+.coverflow__dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: var(--line); cursor: pointer; transition: width .3s ease, background-color .3s ease; }
+.coverflow__dot[aria-current="true"] { width: 26px; background: var(--accent); }
+.coverflow__caption { max-width: 620px; min-height: 84px; margin: 22px auto 0; text-align: center; }
+.coverflow__title { font-weight: 600; font-size: 19px; }
+.coverflow__note { margin: 4px 0 0; color: var(--muted); }
+.coverflow--titles .coverflow__caption { min-height: 0; } /* title-only captions need no room for a description */
+@media (max-width: 600px) {
+  .coverflow__track { height: min(53.75cqw, max(220px, calc(100svh - 300px))); }
+  .coverflow__slide { width: min(86%, max(352px, calc((100svh - 300px) * 1.6))); border-radius: 14px; }
+}
+@media (max-width: 480px) { .coverflow__clip { margin-left: -20px; margin-right: -20px; } }
+@media (max-width: 379px) { .coverflow__clip { margin-left: -16px; margin-right: -16px; } }
 
 /* ---------- Lightbox ---------- */
 .lightbox {

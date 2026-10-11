@@ -157,9 +157,12 @@
 
   /* ---------- Lightbox ---------- */
 
+  // Set by setUpLightbox; other components (the coverflow) call it to open an image.
+  var openLightbox = null;
+
   function setUpLightbox() {
     var images = document.querySelectorAll('img[data-zoom]');
-    if (!images.length) return;
+    if (!images.length && !document.querySelector('[data-coverflow]')) return;
 
     var dialog = document.createElement('dialog');
     dialog.className = 'lightbox';
@@ -175,8 +178,9 @@
     var big = dialog.querySelector('.lightbox__img');
     var opener = null;
 
-    function open(img) {
-      opener = img;
+    // returnTo: element to focus again on close (defaults to the image itself)
+    function open(img, returnTo) {
+      opener = returnTo || img;
       var w = +img.getAttribute('width') || img.naturalWidth || 1;
       var h = +img.getAttribute('height') || img.naturalHeight || 1;
       dialog.classList.toggle('is-tall', h / w > 1.6);
@@ -212,6 +216,8 @@
       }
     });
 
+    openLightbox = open;
+
     images.forEach(function (img) {
       img.setAttribute('tabindex', '0');
       img.setAttribute('role', 'button');
@@ -223,6 +229,94 @@
           open(img);
         }
       });
+    });
+  }
+
+  /* ---------- Coverflow carousel (Accenture "Inside the portal") ---------- */
+
+  // The current screen sits in front with its neighbours scaled down behind it on both sides.
+  // Arrows, dots, a click on a side screen, swipe and the left/right keys move it; a click on the
+  // front screen opens it in the lightbox. The caption follows the current screen.
+  function setUpCoverflow() {
+    document.querySelectorAll('[data-coverflow]').forEach(function (cf) {
+      var track = cf.querySelector('.coverflow__track');
+      var slides = Array.prototype.slice.call(track.querySelectorAll('.coverflow__slide'));
+      var dots = cf.querySelector('.coverflow__dots');
+      var title = cf.querySelector('.coverflow__title');
+      var note = cf.querySelector('.coverflow__note');
+      var n = slides.length;
+      var cur = 0;
+      var swiped = false;
+
+      slides.forEach(function (slide, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'coverflow__dot';
+        dot.setAttribute('aria-label', 'Show ' + slide.getAttribute('data-title'));
+        dot.addEventListener('click', function () { go(i); });
+        dots.appendChild(dot);
+
+        slide.addEventListener('click', function () {
+          if (swiped) return;
+          if (i === cur && openLightbox) openLightbox(slide.querySelector('img'), slide);
+          else go(i);
+        });
+      });
+
+      function layout() {
+        slides.forEach(function (slide, i) {
+          var o = i - cur;
+          if (o > n / 2) o -= n;
+          if (o < -n / 2) o += n;
+          var ab = Math.abs(o);
+          // ab: 0 = front, 1 = neighbour, 2 = next one out, 3+ = hidden behind
+          var scale = ab < 3 ? [1, 0.78, 0.6][ab] : 0.5;
+          var shift = ab < 3 ? [0, 46, 78][ab] : 90;
+          slide.style.transform = 'translate(-50%, -50%) translateX(' + (o < 0 ? -shift : shift) + '%) scale(' + scale + ')';
+          slide.style.zIndex = 10 - ab;
+          slide.style.opacity = ab > 2 ? 0 : 1;
+          slide.style.filter = ab ? 'brightness(' + (ab === 1 ? 0.92 : 0.85) + ') saturate(.9)' : 'none';
+          slide.style.pointerEvents = ab > 2 ? 'none' : 'auto';
+          slide.tabIndex = ab === 0 ? 0 : -1;
+          slide.classList.toggle('is-front', ab === 0);
+          slide.setAttribute('aria-hidden', String(ab > 2));
+          slide.setAttribute('aria-label', (ab === 0 ? 'Enlarge: ' : 'Show: ') + slide.getAttribute('data-title'));
+        });
+        Array.prototype.forEach.call(dots.children, function (d, i) { d.setAttribute('aria-current', String(i === cur)); });
+        title.textContent = slides[cur].getAttribute('data-title');
+        // The description is optional (Glassreview and Bluebox website captions are titles only)
+        if (note) note.textContent = slides[cur].getAttribute('data-note') || '';
+      }
+
+      function go(i) {
+        var hadFocus = track.contains(document.activeElement) && document.activeElement !== track;
+        cur = (i + n) % n;
+        layout();
+        if (hadFocus) slides[cur].focus({ preventScroll: true });
+      }
+
+      cf.querySelectorAll('[data-go]').forEach(function (b) {
+        b.addEventListener('click', function () { go(cur + Number(b.getAttribute('data-go'))); });
+      });
+      track.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+      });
+
+      // Swipe: a horizontal drag of 40px or more changes the screen (vertical scrolling is left alone).
+      var startX = null;
+      track.addEventListener('pointerdown', function (e) { if (e.isPrimary) startX = e.clientX; });
+      track.addEventListener('pointerup', function (e) {
+        if (startX !== null && Math.abs(e.clientX - startX) > 40) {
+          swiped = true;
+          go(cur + (e.clientX < startX ? 1 : -1));
+          setTimeout(function () { swiped = false; }, 0);
+        }
+        startX = null;
+      });
+      track.addEventListener('pointercancel', function () { startX = null; });
+
+      layout();
     });
   }
 
@@ -327,6 +421,7 @@
     setUpCarousels();
     setUpReveal();
     setUpLightbox();
+    setUpCoverflow();
     setUpTabs();
     setUpStepper();
   }

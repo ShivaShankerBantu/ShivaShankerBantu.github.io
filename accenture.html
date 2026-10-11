@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=5">
-<script src="assets/js/main.js?v=2"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=11">
+<script src="assets/js/main.js?v=4"></script>
 </head>
 <body class="page-accenture">
 <site-header></site-header>
@@ -45,7 +45,16 @@
 <div><div class="kicker">Users</div><div class="fact__value">Deployment engineers, managers, admins</div></div>
 <div><div class="kicker">Period</div><div class="fact__value">2023 to present</div></div>
 </div>
-<p class="facts-note">The client's screens are confidential, so this page tells the story in words and diagrams.</p>
+<p class="facts-note">The screens on this page are my own concept redesign of the portal, rebuilt with placeholder names and data. No client data, names or branding are shown.</p>
+<div class="device-stage device-stage--fade cover-art--accenture mt-32">
+<div class="laptop">
+<div class="laptop__lid"><div class="laptop__screen"><img src="assets/img/accenture/home-dashboard.webp" alt="Concept redesign of the deployment portal dashboard" width="2880" height="1800" data-zoom></div></div>
+<div class="laptop__base" aria-hidden="true"></div>
+</div>
+</div>
+<div class="concept-caption">
+<p>A concept redesign of the portal's dashboard.</p>
+</div>
 </section>
 
 <section class="wrap pt-88 pb-0">
@@ -91,6 +100,28 @@
 <div class="tile tile--340 lift"><div class="tile__num">04</div><div class="tile__title">User management</div><p>Admins add or remove people from the portal, and create the roles and groups that decide what each person can do.</p></div>
 <div class="tile tile--340 lift"><div class="tile__num">05</div><div class="tile__title">Admin portal</div><p>Full access for admins, who see the entire picture across every deployment and every user.</p></div>
 <div class="tile tile--340 lift"><div class="tile__num">06</div><div class="tile__title">AI chat assistant</div><p>A chat interface for asking about any deployment in plain language.</p></div>
+</div>
+</section>
+
+<section class="wrap pt-96 pb-0">
+<h2 class="h2">Inside the portal</h2>
+<div class="coverflow mt-32" data-coverflow>
+<div class="coverflow__clip">
+<div class="coverflow__track" tabindex="0" aria-roledescription="carousel" aria-label="Portal screens">
+<button class="coverflow__slide" type="button" data-title="Deployments board" data-note="Every contract and solution moves through the four states on one board, so engineers see what is waiting, what is late and who owns it."><img src="assets/img/accenture/deployments-kanban.webp" alt="Deployments board screen" width="2880" height="1800"></button>
+<button class="coverflow__slide" type="button" data-title="Deployment detail" data-note="One deployment in depth: where it is in the flow, what is holding it, and a timeline of everything that has happened so far."><img src="assets/img/accenture/deployment-detail.webp" alt="Deployment detail screen" width="2880" height="1800" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Customer deployments" data-note="Each customer with their contracts and solutions in one place, including the region and the engineer responsible."><img src="assets/img/accenture/customer-deployments.webp" alt="Customer deployments screen" width="2880" height="1800" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Internal contract requests" data-note="Requests move through first-level and final approval, with the status visible to everyone involved."><img src="assets/img/accenture/internal-contracts-creation.webp" alt="Internal contract requests screen" width="2880" height="1800" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="User management" data-note="Everyone with access to the portal, their roles at a glance, and quick filters to find admins, managers or engineers."><img src="assets/img/accenture/user-management.webp" alt="User management screen" width="2880" height="1800" loading="lazy"></button>
+<button class="coverflow__slide" type="button" data-title="Roles and permissions" data-note="Admins build a role from 75 permissions grouped by area, and see at a glance how much access the role gives."><img src="assets/img/accenture/add-role.webp" alt="Roles and permissions screen" width="2880" height="1800" loading="lazy"></button>
+</div>
+</div>
+<div class="coverflow__nav">
+<button class="coverflow__arrow" type="button" data-go="-1" aria-label="Previous screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+<div class="coverflow__dots"></div>
+<button class="coverflow__arrow" type="button" data-go="1" aria-label="Next screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+<div class="coverflow__caption" aria-live="polite"><div class="coverflow__title">Deployments board</div><p class="coverflow__note">Every contract and solution moves through the four states on one board, so engineers see what is waiting, what is late and who owns it.</p></div>
 </div>
 </section>
 
