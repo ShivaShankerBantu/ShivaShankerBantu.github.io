@@ -336,26 +336,26 @@ img[data-zoom] { cursor: zoom-in; }
 }
 .work-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0, 0, 0, .14); border-color: var(--accent); text-decoration: none; }
 
-.feature-card { margin-top: 40px; flex-wrap: wrap; gap: 40px; padding: 40px; }
-.feature-card__copy { flex: 1 1 380px; display: flex; flex-direction: column; gap: 16px; }
+/* Featured card: text on the left, a tinted panel on the right that bleeds to the card's top, right and
+   bottom edges. The dashboard frame inside runs off the bottom-right and is clipped by the card's corner. */
+.feature-card { --fc-pad: 40px; margin-top: 40px; flex-wrap: nowrap; gap: 40px; padding: var(--fc-pad); overflow: hidden; isolation: isolate; }
+.feature-card__copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.feature-card__states { margin: 0; display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 14px; color: var(--muted); }
+.feature-card__states span + span::before { content: "→" / ""; margin-right: 8px; }
+.feature-card__shot {
+  position: relative; flex: 1.2 1 0; min-width: 0; container-type: size; overflow: hidden;
+  margin: calc(-1 * var(--fc-pad)) calc(-1 * var(--fc-pad)) calc(-1 * var(--fc-pad)) 0;
+  background: linear-gradient(135deg, var(--cover-a), var(--cover-b) 55%, var(--cover-deep, var(--cover-b)));
+}
+/* Zoomed glimpse pinned near the top-left: at least 150% of the panel wide, and wider on tall panels,
+   so the frame always runs off the bottom-right and never leaves an empty band above it */
+.feature-card .browser--feature { left: 7cqw; top: 7cqw; width: max(150cqw, calc((100cqh - 7cqw) * 1.7)); }
+@media (max-width: 819px) {
+  .feature-card { flex-direction: column; gap: 28px; }
+  .feature-card__shot { order: -1; flex: none; aspect-ratio: 16 / 9; margin: calc(-1 * var(--fc-pad)) calc(-1 * var(--fc-pad)) 0; }
+}
 .feature-card__title { margin: 0; font-family: var(--f-head); font-weight: 600; font-size: clamp(34px, 4vw, 52px); line-height: 1.04; letter-spacing: -0.03em; }
 .feature-card__more { margin-top: auto; padding-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--accent); }
-.feature-card__flow { flex: 1.2 1 420px; padding: 32px; border-radius: 18px; border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; gap: 18px; }
-/* Once the two halves stack (below 1052px), move "Read the story" under the states panel */
-@media (max-width: 1051px) {
-  .feature-card { flex-direction: column; gap: 16px; }
-  .feature-card__copy { display: contents; }
-  .feature-card__flow { margin: 12px 0; }
-  .feature-card__more { order: 1; margin-top: 0; padding-top: 0; }
-}
-.flow-list { display: flex; flex-direction: column; font-size: 16px; }
-.flow-list > div { display: flex; align-items: center; gap: 14px; padding: 13px 0; border-top: 1px solid var(--line); }
-.flow-list > div:last-child { border-bottom: 1px solid var(--line); }
-.flow-list__n {
-  flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent);
-  display: inline-flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 12px;
-}
-.flow-list__note { margin-left: auto; font-size: 14px; color: var(--muted); }
 
 .project-card { flex-direction: column; gap: 14px; flex: 1 1 380px; padding: 28px; }
 .project-card .frame { height: 300px; }
@@ -735,8 +735,7 @@ html.lightbox-open { overflow: hidden; }
 /* ---------- Small screens ---------- */
 @media (max-width: 480px) {
   .wrap, .site-header__inner { padding-left: 20px; padding-right: 20px; }
-  .feature-card { padding: 24px; }
-  .feature-card__flow { padding: 22px; }
+  .feature-card { --fc-pad: 24px; }
   .project-card { padding: 20px; }
   .contact-box { padding: 40px 24px; }
   .contact-box__social { padding-left: 0; }
