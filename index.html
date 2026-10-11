@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=15">
-<script src="assets/js/main.js?v=9"></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=16">
+<script src="assets/js/main.js?v=10"></script>
 </head>
 <body class="home">
 <site-header home></site-header>
@@ -40,21 +40,27 @@
 <a class="btn btn--line" href="#contact">Get in touch</a>
 </div>
 </div>
-<div class="hero-art" aria-hidden="true">
-<div class="hero-art__stage">
-<div class="hero-art__disc"></div>
-<div class="hero-art__ring spin-slow spin-slow--rev"></div>
-<div class="hero-art__big float-a"></div>
-<div class="hero-art__outline float-b"></div>
-<div class="hero-art__dot"></div>
-<svg class="hero-art__text spin" viewBox="0 0 200 200">
-<defs><path id="hero-ring" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"></path></defs>
-<text fill="currentColor"><textPath href="#hero-ring">RESEARCH · WIREFRAMES · PROTOTYPES · UI DESIGN ·</textPath></text>
-</svg>
-<div class="hero-art__core">
-<svg width="30" height="30" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"></path></svg>
-</div>
-</div>
+<div class="hero-art chatdemo" data-chatdemo>
+  <div class="cd">
+    <div class="cd__head">
+      <span class="cd__avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></span>
+      <div><b>Quick guide</b><span>Pre-written answers about Shiva's work</span></div>
+    </div>
+    <div class="cd__body" aria-live="polite"></div>
+    <div class="cd__composer">
+      <div class="cd__menu" id="cd-menu" role="menu" aria-label="Questions you can ask" hidden>
+        <span class="cd__menu-label">Suggested questions</span>
+        <button type="button" role="menuitem" class="cd__opt" data-q="0">What does Shiva design?</button>
+        <button type="button" role="menuitem" class="cd__opt" data-q="1">Show me Shiva's best work</button>
+        <button type="button" role="menuitem" class="cd__opt" data-q="2">Can I see Shiva's resume?</button>
+        <button type="button" role="menuitem" class="cd__opt" data-q="3">How can I contact Shiva?</button>
+      </div>
+      <button type="button" class="cd__ask" aria-haspopup="menu" aria-expanded="false" aria-controls="cd-menu">
+        <span>Ask a question about Shiva's work</span>
+        <span class="cd__send" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></span>
+      </button>
+    </div>
+  </div>
 </div>
 </section>
 

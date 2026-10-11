@@ -415,6 +415,56 @@
     });
   }
 
+  /* ---------- Hero quick-guide chat (home page) ---------- */
+
+  function setUpHeroChat() {
+  var root = document.querySelector('[data-chatdemo]'); if (!root) return;
+  var body = root.querySelector('.cd__body'), ask = root.querySelector('.cd__ask'), menu = root.querySelector('.cd__menu');
+  var opts = Array.prototype.slice.call(root.querySelectorAll('.cd__opt'));
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var GREET = "Hi! I'm a quick guide to Shiva's work. Tap the bar below to ask me something.";
+  var A = [
+    ['Enterprise web apps, mobile apps and AI chat assistants, from research through to launch.', 'See the work', '#work'],
+    ['Start with the deployment portal at Accenture: a concept redesign with an AI chat assistant built in.', 'Open the case study', 'accenture.html'],
+    ['Yes. It covers his experience, the products he has worked on and the tools he uses.', 'Open the resume (PDF)', 'assets/Shiva_Shanker_Bantu_Resume.pdf', true],
+    ['Email is the best way: shiva.bantu8272@gmail.com', 'Get in touch', '#contact']
+  ];
+  var busy = true, greeted = false;
+  function el(cls, txt) { var d = document.createElement('div'); d.className = cls; if (txt) d.textContent = txt; return d; }
+  function type(node, text, done) {
+    if (RM) { node.textContent = text; done(); return; }
+    var i = 0; (function step() { i += 2; node.textContent = text.slice(0, i); if (i < text.length) setTimeout(step, 18); else done(); })();
+  }
+  function bot(text, cta) {
+    var t = el('cd__msg cd__msg--bot'); t.innerHTML = '<span class="cd__typing"><i></i><i></i><i></i></span>'; body.appendChild(t);
+    setTimeout(function () {
+      type(t, text, function () {
+        if (cta) { var a = document.createElement('a'); a.className = 'cd__cta'; a.href = cta[1]; if (cta[2]) { a.target = '_blank'; a.rel = 'noopener'; } a.textContent = cta[0] + ' \u2192'; body.appendChild(a); }
+        busy = false; ask.disabled = false;
+        if (!greeted) { greeted = true; ask.classList.add('is-nudge'); }
+      });
+    }, RM ? 0 : 650);
+  }
+  function openMenu() { menu.hidden = false; ask.setAttribute('aria-expanded', 'true'); ask.classList.remove('is-nudge'); opts[0].focus(); }
+  function closeMenu(refocus) { if (menu.hidden) return; menu.hidden = true; ask.setAttribute('aria-expanded', 'false'); if (refocus) ask.focus(); }
+  ask.addEventListener('click', function () { if (busy) return; menu.hidden ? openMenu() : closeMenu(); });
+  opts.forEach(function (o, i) {
+    o.addEventListener('click', function () {
+      closeMenu(); busy = true; ask.disabled = true; o.classList.add('is-asked');
+      body.innerHTML = ''; body.appendChild(el('cd__msg cd__msg--me', o.textContent));
+      var a = A[+o.dataset.q]; bot(a[0], [a[1], a[2], a[3]]);
+    });
+    o.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); opts[(i + 1) % opts.length].focus(); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); opts[(i + opts.length - 1) % opts.length].focus(); }
+    });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(true); });
+  document.addEventListener('click', function (e) { if (!root.contains(e.target)) closeMenu(); });
+  ask.disabled = true;
+  setTimeout(function () { bot(GREET); }, RM ? 0 : 700);
+  }
+
   /* ---------- Blue Box tab viewer ---------- */
 
   function setUpTabs() {
@@ -518,6 +568,7 @@
     setUpLightbox();
     setUpCoverflow();
     setUpProcessLines();
+    setUpHeroChat();
     setUpTabs();
     setUpStepper();
   }
