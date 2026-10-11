@@ -320,6 +320,101 @@
     });
   }
 
+  /* ---------- Process line illustration (Blue Box and Urban Dental) ---------- */
+
+  // One continuous 3px line through five step points in a 1000 x 220 box (line at y = 110), shown trimmed to y 24-200 where the shapes are.
+  // Points sit at x = 230, 410, 580, 750, 910 so the opening tangle has room. Each step's character
+  // is the segment leading into its point: Discover a large tangle of overlapping loops across the
+  // line; Define four curves that fan out from the Discover point, are widest a third of the way along and close into the Define point; Ideate a
+  // split into one curve swinging up and one swinging down that rejoin before the point; Design one
+  // smooth wave; Test a straight run ending in an open arrowhead at the last point.
+  // del and dur (seconds) draw the segments in order over about 1.6s.
+  var PROCESS_POINTS = [230, 410, 580, 750, 910];
+  var PROCESS_SEGMENTS = [
+    { del: 0, dur: 0.5, paths: [
+      'M0 110 L26 110 C42 110 48 52 92 42 C138 32 170 72 158 112 C146 154 92 178 66 148 C40 118 74 74 120 72 C168 70 204 106 190 146 C176 186 122 190 108 162 C94 134 126 94 166 92 C202 90 214 110 230 110'
+    ] },
+    { del: 0.5, dur: 0.3, paths: [
+      'M230 110 L410 110',
+      'M230 110 C255 77 305 77 410 110',
+      'M230 110 C255 143 305 143 410 110',
+      'M230 110 C255 43 305 43 410 110',
+      'M230 110 C255 177 305 177 410 110'
+    ] },
+    { del: 0.8, dur: 0.3, paths: [
+      'M410 110 C440 110 452 52 496 52 C540 52 540 110 560 110 L580 110',
+      'M410 110 C430 110 444 168 494 168 C536 168 548 110 560 110'
+    ] },
+    { del: 1.1, dur: 0.25, paths: [
+      'M580 110 C628 46 702 174 750 110'
+    ] },
+    { del: 1.35, dur: 0.25, paths: [
+      'M750 110 L910 110',
+      'head:M888 94 L910 110 L888 126'
+    ] }
+  ];
+  var PROCESS_DOT_TIMES = [0.5, 0.8, 1.1, 1.35, 1.6];
+
+  function processSVG(vertical, label) {
+    var shapes = '';
+    PROCESS_SEGMENTS.forEach(function (seg) {
+      seg.paths.forEach(function (p) {
+        var head = p.indexOf('head:') === 0;
+        var d = head ? p.slice(5) : p;
+        var del = head ? seg.del + seg.dur - 0.08 : seg.del;
+        var dur = head ? 0.12 : seg.dur;
+        shapes += '<path class="pl-seg" pathLength="1" d="' + d + '" style="--del:' + del + 's;--dur:' + dur + 's"></path>';
+      });
+    });
+    PROCESS_POINTS.forEach(function (x, i) {
+      shapes += '<circle class="pl-dot" cx="' + x + '" cy="110" r="5" style="--del:' + PROCESS_DOT_TIMES[i] + 's"></circle>';
+    });
+    // The vertical version turns the same drawing a quarter turn so the line runs downwards.
+    var g = vertical ? '<g transform="translate(220 0) rotate(90)">' + shapes + '</g>' : shapes;
+    return '<svg class="process-line__art process-line__art--' + (vertical ? 'v' : 'h') + '" viewBox="' +
+      (vertical ? '20 0 176 1000' : '0 24 1000 176') + '" role="img" aria-label="' + label + '" focusable="false">' + g + '</svg>';
+  }
+
+  function setUpProcessLines() {
+    var lines = document.querySelectorAll('[data-process-line]');
+    if (!lines.length) return;
+    var animate = !reduceMotion.matches && 'IntersectionObserver' in window;
+    var observer = animate ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-drawn');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 }) : null;
+
+    lines.forEach(function (line) {
+      var names = Array.prototype.map.call(line.querySelectorAll('.process-line__name'), function (n) { return n.textContent; });
+      var label = 'Process in ' + names.length + ' steps: ' + names.join(', ');
+      line.insertAdjacentHTML('afterbegin', processSVG(false, label) + processSVG(true, label));
+
+      // Keep the line 3px and the dots 10px on screen whatever size the drawing is shown at.
+      var arts = line.querySelectorAll('.process-line__art');
+      var size = function () {
+        Array.prototype.forEach.call(arts, function (svg) {
+          var w = svg.getBoundingClientRect().width;
+          if (!w) return;
+          var units = svg.classList.contains('process-line__art--v') ? 176 : 1000;
+          var unit = units / w; // drawing units per screen pixel
+          svg.style.setProperty('--pl-sw', (3 * unit).toFixed(3));
+          Array.prototype.forEach.call(svg.querySelectorAll('.pl-dot'), function (dot) { dot.setAttribute('r', (5 * unit).toFixed(2)); });
+        });
+      };
+      size();
+      if ('ResizeObserver' in window) new ResizeObserver(size).observe(line);
+      else window.addEventListener('resize', size);
+
+      if (animate) {
+        line.classList.add('is-armed');
+        observer.observe(line);
+      }
+    });
+  }
+
   /* ---------- Blue Box tab viewer ---------- */
 
   function setUpTabs() {
@@ -422,6 +517,7 @@
     setUpReveal();
     setUpLightbox();
     setUpCoverflow();
+    setUpProcessLines();
     setUpTabs();
     setUpStepper();
   }

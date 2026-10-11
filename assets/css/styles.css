@@ -215,8 +215,6 @@ site-header, site-footer { display: block; }
 .shot { transition: transform .35s var(--ease-out), box-shadow .35s ease; }
 .shot:hover { transform: translateY(-4px); box-shadow: 0 22px 56px rgba(0, 0, 0, .14); }
 .page-resident .shot:hover { transform: translateY(-8px); box-shadow: 0 22px 56px rgba(0, 0, 0, .18); }
-.tile-lift { transition: transform .25s ease, border-color .25s ease; }
-.tile-lift:hover { transform: translateY(-4px); border-color: var(--accent); }
 
 /* ---------- Shared components ---------- */
 .card { border: 1px solid var(--line); border-radius: 24px; background: var(--surface); }
@@ -268,13 +266,53 @@ img[data-zoom] { cursor: zoom-in; }
 .rows__title { font-weight: 600; font-size: 19px; }
 .rows__text { margin-top: 4px; color: var(--muted); }
 
-/* Process tiles */
-.process > div { flex: 1 1 150px; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
-.process > div.is-planned { border-style: dashed; background: transparent; }
-.process__n { font-family: var(--f-mono); font-size: 13px; color: var(--accent); }
-.process .is-planned .process__n { color: var(--muted); }
-.process__title { margin-top: 10px; font-weight: 600; font-size: 19px; }
-.process__text { margin-top: 6px; font-size: 15px; color: var(--muted); }
+/* Process line illustration (shared by Blue Box and Urban Dental; drawn by main.js).
+   Points sit at 23%, 41%, 58%, 75% and 91% along the drawing; labels line up under (or beside) them. */
+.process-line { position: relative; color: var(--fg); }
+.process-line__art { display: block; overflow: visible; }
+.process-line__art--h { width: 100%; height: auto; }
+.process-line__art--v { display: none; }
+.pl-seg { fill: none; stroke: currentColor; stroke-width: var(--pl-sw, 3); stroke-linecap: round; stroke-linejoin: round; }
+.pl-dot { fill: currentColor; transform-box: fill-box; transform-origin: center; }
+/* 100 narrow columns, so each label can be centred on its point: start column = point% - 8, 16 columns wide */
+.process-line__steps { margin: 20px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(100, minmax(0, 1fr)); text-align: center; }
+.process-line__steps li { grid-row: 1; grid-column: var(--col) / span 16; padding: 0 6px; }
+.process-line__steps li:nth-child(1) { --col: 16; }
+.process-line__steps li:nth-child(2) { --col: 34; }
+.process-line__steps li:nth-child(3) { --col: 51; }
+.process-line__steps li:nth-child(4) { --col: 68; }
+.process-line__steps li:nth-child(5) { --col: 84; }
+.process-line__name { display: block; font-family: var(--f-head); font-weight: 700; font-size: 20px; line-height: 1.2; letter-spacing: -0.01em; }
+.process-line__note { display: block; margin-top: 6px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+@media (max-width: 1000px) {
+  .process-line__name { font-size: 17px; }
+  .process-line__note { font-size: 14px; }
+}
+/* Draw once when scrolled into view (main.js adds is-armed, then is-drawn); otherwise shown fully drawn.
+   Segments stay invisible until their turn, since a round line cap would otherwise show as a stray dot. */
+.process-line.is-armed .pl-seg { stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
+.process-line.is-armed .pl-dot { opacity: 0; }
+.process-line.is-drawn .pl-seg { animation: pl-draw var(--dur) linear var(--del) forwards; }
+.process-line.is-drawn .pl-dot { animation: pl-pop .3s var(--ease-out) var(--del) forwards; }
+@keyframes pl-draw { from { opacity: 1; } to { stroke-dashoffset: 0; opacity: 1; } }
+@keyframes pl-pop { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .process-line.is-armed .pl-seg { stroke-dashoffset: 0; opacity: 1; }
+  .process-line.is-armed .pl-dot { opacity: 1; }
+}
+/* Below 700px: the line runs downwards, each step's name and note beside its point */
+@media (max-width: 699px) {
+  .process-line { display: grid; grid-template-columns: 120px minmax(0, 1fr); column-gap: 12px; padding-bottom: 48px; }
+  .process-line__art--h { display: none; }
+  .process-line__art--v { display: block; width: 120px; height: auto; }
+  .process-line__steps { position: relative; margin: 0; display: block; text-align: left; }
+  .process-line__steps li { position: absolute; left: 0; right: 0; padding: 0; transform: translateY(-13px); }
+  .process-line__steps li:nth-child(1) { top: 23%; }
+  .process-line__steps li:nth-child(2) { top: 41%; }
+  .process-line__steps li:nth-child(3) { top: 58%; }
+  .process-line__steps li:nth-child(4) { top: 75%; }
+  .process-line__steps li:nth-child(5) { top: 91%; }
+}
 
 /* Bullet lists in cards */
 .ul-muted { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
