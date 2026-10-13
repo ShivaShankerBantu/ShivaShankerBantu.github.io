@@ -243,10 +243,6 @@ img[data-zoom] { cursor: zoom-in; }
 .cover { position: relative; isolation: isolate; }
 /* A rotating ring's box grows by up to 41% at 45°, which made the page scroll sideways; clip that sideways only */
 .hero, .cover { overflow-x: clip; }
-.cover-decor { position: absolute; z-index: -1; right: 32px; top: 40px; width: 250px; height: 250px; }
-.cover-decor__ring { position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed var(--accent); opacity: .6; }
-.cover-decor__disc { position: absolute; inset: 52px; border-radius: 50%; background: var(--soft); }
-.cover-decor__dot { position: absolute; width: 74px; height: 74px; right: 8px; top: 16px; border-radius: 50%; background: var(--accent); }
 .back-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; color: var(--muted); }
 .cover .eyebrow { margin-top: 24px; }
 
@@ -702,10 +698,6 @@ img[data-zoom] { cursor: zoom-in; }
 
 /* ---------- Phones (below 700px) ---------- */
 @media (max-width: 699px) {
-  /* Cover motif: small, in the top-right corner beside "All work", clear of the label, title and intro */
-  .cover-decor { top: 4px; right: 20px; width: 116px; height: 116px; }
-  .cover-decor__disc { inset: 24px; }
-  .cover-decor__dot { width: 34px; height: 34px; right: 4px; top: 7px; }
 
   /* Groups of phone screens: one sideways-scrolling row with snap points */
   [data-carousel] {
@@ -803,7 +795,6 @@ html.lightbox-open { overflow: hidden; }
   .wrap { padding-left: 16px; padding-right: 16px; }
   .contact-box { padding: 36px 16px; }
   .contact-box .btn { padding: 0 18px; font-size: 15px; }
-  .cover-decor { right: 16px; }
 }
 
 /* ---------- Reduced motion ---------- */
@@ -827,3 +818,96 @@ html.lightbox-open { overflow: hidden; }
 .cover-art--ev.phones-cover img { width: 36cqw; margin: 9cqw -3cqw 0; position: relative; }
 .cover-art--ev.phones-cover img:nth-child(1) { z-index: 2; }
 .cover-art--ev.phones-cover img:nth-child(2), .cover-art--ev.phones-cover img:nth-child(3) { margin-top: 16cqw; }
+
+/* ---------- Cover illustrations (one per project page) ---------- */
+.cover-illus { position: absolute; z-index: -1; right: 24px; top: 20px; width: 310px; height: 310px; }
+.cover-illus svg { width: 100%; height: 100%; overflow: visible; }
+.ci-ring { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 5; opacity: .55; transform-origin: 140px 140px; animation: spin 70s linear infinite; }
+.ci-disc { fill: var(--soft); }
+.ci-card { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.ci-line, .ci-track { stroke: var(--line); stroke-width: 1.5; }
+.ci-track { stroke-width: 3; stroke-linecap: round; }
+.ci-chrome { fill: var(--line); }
+.ci-skel { fill: var(--soft); }
+.ci-skel--s { fill: var(--line); }
+.ci-prog { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 144; stroke-dashoffset: 144; animation: ci-prog 9s ease-in-out infinite; }
+.ci-node__ring { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.ci-node__fill { fill: var(--accent); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.ci-node__tick { stroke: var(--accent-fg); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.ci-node--1 > * + * { animation: ci-n1 9s ease-out infinite; }
+.ci-node--2 > * + * { animation: ci-n2 9s ease-out infinite; }
+.ci-node--3 > * + * { animation: ci-n3 9s ease-out infinite; }
+.ci-node--4 > * + * { animation: ci-n4 9s ease-out infinite; }
+.ci-bot { animation: bob 6s ease-in-out infinite; }
+.ci-bubble { fill: var(--accent); }
+.ci-dot { fill: var(--accent-fg); animation: ci-type 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.ci-dot--2 { animation-delay: .18s; } .ci-dot--3 { animation-delay: .36s; }
+.ci-spark { fill: var(--accent); transform-box: fill-box; transform-origin: center; animation: ci-spark 3s ease-in-out infinite; }
+@keyframes ci-prog { 0%, 6% { stroke-dashoffset: 144; } 24%, 30% { stroke-dashoffset: 96; } 48%, 54% { stroke-dashoffset: 48; } 72%, 90% { stroke-dashoffset: 0; } 97%, 100% { stroke-dashoffset: 144; } }
+@keyframes ci-n1 { 0%, 4% { opacity: 0; transform: scale(.6); } 8%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; } }
+@keyframes ci-n2 { 0%, 24% { opacity: 0; transform: scale(.6); } 28%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; } }
+@keyframes ci-n3 { 0%, 48% { opacity: 0; transform: scale(.6); } 52%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; } }
+@keyframes ci-n4 { 0%, 72% { opacity: 0; transform: scale(.6); } 76%, 90% { opacity: 1; transform: scale(1); } 96%, 100% { opacity: 0; } }
+@keyframes ci-type { 0%, 60%, 100% { transform: translateY(0); opacity: .55; } 30% { transform: translateY(-4px); opacity: 1; } }
+@keyframes ci-spark { 0%, 100% { transform: scale(.7) rotate(0deg); opacity: .6; } 50% { transform: scale(1.1) rotate(45deg); opacity: 1; } }
+/* Desktop: the title and intro stop short of the illustration (its 310px plus a gap), keeping their own maximum widths */
+@media (min-width: 1101px) {
+  .cover > .h-display, .cover > .eyebrow, .cover > .mono { max-width: calc(100% - 340px); }
+  .cover > .h-display--story { max-width: min(980px, calc(100% - 340px)); }
+  .cover > .lede { max-width: min(720px, calc(100% - 340px)); }
+}
+/* Tablets and phones: a small illustration in the top-right corner, beside "All work" and clear of the text */
+@media (max-width: 1100px) { .cover-illus { top: 0; right: 12px; width: 128px; height: 128px; } .cover > .mono { max-width: calc(100% - 130px); } }
+@media (prefers-reduced-motion: reduce) {
+  .ci-ring, .ci-bot, .ci-dot, .ci-spark { animation: none; }
+  .ci-prog { animation: none; stroke-dashoffset: 48; }
+  .ci-node--1 > * + *, .ci-node--2 > * + *, .ci-node--3 > * + * { animation: none; opacity: 1; }
+  .ci-node--4 > * + * { animation: none; }
+}
+.ev-cable { stroke: var(--muted); stroke-width: 4; stroke-linecap: round; opacity: .7; }
+.ev-prong { stroke: var(--muted); stroke-width: 3; stroke-linecap: round; }
+.ev-face { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.ev-track { stroke: var(--soft); stroke-width: 10; }
+.ev-arc { stroke: var(--accent); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 314.2; stroke-dashoffset: 314.2; animation: ev-fill 9s ease-in-out infinite; }
+.ev-bolt { fill: var(--accent); transform-box: fill-box; transform-origin: center; animation: ev-pulse 1.8s ease-in-out infinite; }
+.ev-chip__badge { fill: var(--accent); }
+.ev-rupee { stroke: var(--accent-fg); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ev-pin-tick { stroke: var(--accent-fg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.ev-chip { animation: bob 7s ease-in-out infinite reverse; }
+@keyframes ev-fill { 0%, 6% { stroke-dashoffset: 314.2; } 70%, 88% { stroke-dashoffset: 62.8; } 97%, 100% { stroke-dashoffset: 314.2; } }
+@keyframes ev-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.9); opacity: .7; } }
+@media (prefers-reduced-motion: reduce) {
+  .ev-arc { animation: none; stroke-dashoffset: 62.8; }
+  .ev-bolt, .ev-chip { animation: none; }
+}
+.ci-glyph { stroke: var(--accent-fg); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.ci-glyph--fill { fill: var(--accent-fg); }
+.bb-win { fill: var(--soft); }
+.bb-lit { fill: var(--accent); opacity: 0; animation: ci-twinkle 6s ease-in-out infinite; }
+.bb-badge { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.ud-head { fill: var(--accent); }
+.ud-bind { fill: var(--muted); }
+.ud-slot { animation: ud-hop 10s ease-in-out infinite; }
+.gr-face { fill: var(--line); }
+.gr-star { fill: var(--soft); stroke: var(--line); stroke-width: 1.2; stroke-linejoin: round; }
+.gr-star-on { fill: var(--accent); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.gr-s1, .rs-1 { animation: ci-c1 9s ease-out infinite; }
+.gr-s2, .rs-2 { animation: ci-c2 9s ease-out infinite; }
+.gr-s3, .rs-3 { animation: ci-c3 9s ease-out infinite; }
+.gr-s4, .rs-4 { animation: ci-c4 9s ease-out infinite; }
+.gr-s5 { animation: ci-c5 9s ease-out infinite; }
+.rs-on { opacity: 0; }
+.wb-tile { fill: var(--accent); opacity: 0; animation: wb-hl 7.5s ease-in-out infinite; }
+.wb-t2 { animation-delay: 2.5s; } .wb-t3 { animation-delay: 5s; }
+@keyframes ci-twinkle { 0%, 100% { opacity: 0; } 20%, 60% { opacity: 1; } 80% { opacity: 0; } }
+@keyframes ud-hop { 0%, 18% { transform: translate(0, 0); } 25%, 43% { transform: translate(56px, 0); } 50%, 68% { transform: translate(28px, 24px); } 75%, 93% { transform: translate(84px, 48px); } 100% { transform: translate(0, 0); } }
+@keyframes ci-c1 { 0%, 4% { opacity: 0; } 8%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes ci-c2 { 0%, 18% { opacity: 0; } 22%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes ci-c3 { 0%, 32% { opacity: 0; } 36%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes ci-c4 { 0%, 46% { opacity: 0; } 50%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes ci-c5 { 0%, 60% { opacity: 0; } 64%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes wb-hl { 0%, 100% { opacity: 0; } 8%, 30% { opacity: 1; } 40% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .bb-lit, .ud-slot, .gr-star-on, .rs-on, .wb-tile { animation: none; }
+  .bb-lit, .gr-s1, .gr-s2, .gr-s3, .gr-s4, .rs-1, .rs-2, .wb-t1 { opacity: 1; }
+}

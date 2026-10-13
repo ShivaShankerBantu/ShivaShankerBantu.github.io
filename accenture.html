@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=15">
+<link rel="stylesheet" href="assets/css/styles.css?v=20">
 <script src="assets/js/main.js?v=9"></script>
 </head>
 <body class="page-accenture">
@@ -30,7 +30,36 @@
 <main id="main">
 
 <section class="wrap cover pt-56 pb-0">
-<div class="cover-decor" aria-hidden="true"><div class="cover-decor__ring spin-slow"></div><div class="cover-decor__disc"></div><div class="cover-decor__dot float-a"></div></div>
+<div class="cover-illus cover-illus--deploy" aria-hidden="true">
+<svg viewBox="0 0 280 280" fill="none">
+  <circle class="ci-ring" cx="140" cy="140" r="128"/>
+  <circle class="ci-disc" cx="140" cy="148" r="92"/>
+  <!-- portal window -->
+  <g class="ci-win">
+    <rect class="ci-card" x="34" y="104" width="200" height="116" rx="16"/>
+    <path class="ci-line" d="M34 128h200"/>
+    <circle class="ci-chrome" cx="50" cy="116" r="3"/><circle class="ci-chrome" cx="61" cy="116" r="3"/><circle class="ci-chrome" cx="72" cy="116" r="3"/>
+    <rect class="ci-skel" x="50" y="142" width="64" height="6" rx="3"/>
+    <!-- pipeline: 4 deployment states -->
+    <path class="ci-track" d="M62 174H206"/>
+    <path class="ci-prog" d="M62 174H206"/>
+    <g class="ci-node ci-node--1"><circle class="ci-node__ring" cx="62" cy="174" r="10"/><circle class="ci-node__fill" cx="62" cy="174" r="10"/><path class="ci-node__tick" d="M57.5 174l3 3 6-6"/></g>
+    <g class="ci-node ci-node--2"><circle class="ci-node__ring" cx="110" cy="174" r="10"/><circle class="ci-node__fill" cx="110" cy="174" r="10"/><path class="ci-node__tick" d="M105.5 174l3 3 6-6"/></g>
+    <g class="ci-node ci-node--3"><circle class="ci-node__ring" cx="158" cy="174" r="10"/><circle class="ci-node__fill" cx="158" cy="174" r="10"/><path class="ci-node__tick" d="M153.5 174l3 3 6-6"/></g>
+    <g class="ci-node ci-node--4"><circle class="ci-node__ring" cx="206" cy="174" r="10"/><circle class="ci-node__fill" cx="206" cy="174" r="10"/><path class="ci-node__tick" d="M201.5 174l3 3 6-6"/></g>
+    <rect class="ci-skel ci-skel--s" x="51" y="196" width="22" height="4" rx="2"/>
+    <rect class="ci-skel ci-skel--s" x="99" y="196" width="22" height="4" rx="2"/>
+    <rect class="ci-skel ci-skel--s" x="147" y="196" width="22" height="4" rx="2"/>
+    <rect class="ci-skel ci-skel--s" x="195" y="196" width="22" height="4" rx="2"/>
+  </g>
+  <!-- AI assistant bubble -->
+  <g class="ci-bot">
+    <path class="ci-bubble" d="M178 30h56a22 22 0 0 1 22 22v8a22 22 0 0 1-22 22h-40l-16 14v-15a22 22 0 0 1-22-21v-8a22 22 0 0 1 22-22z"/>
+    <circle class="ci-dot ci-dot--1" cx="192" cy="56" r="4"/><circle class="ci-dot ci-dot--2" cx="206" cy="56" r="4"/><circle class="ci-dot ci-dot--3" cx="220" cy="56" r="4"/>
+    <path class="ci-spark" d="M252 16c1.2 6 3 7.8 9 9-6 1.2-7.8 3-9 9-1.2-6-3-7.8-9-9 6-1.2 7.8-3 9-9z"/>
+  </g>
+</svg>
+</div>
 <a class="back-link" href="index.html">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 8H3M7.5 3.5 3 8l4.5 4.5"></path></svg>All work</a>
 <div class="mono mt-24">Present work / Accenture / Oil and gas industry</div>

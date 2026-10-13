@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=17">
+<link rel="stylesheet" href="assets/css/styles.css?v=20">
 <script src="assets/js/main.js?v=10"></script>
 </head>
 <body class="page-ev">
@@ -30,7 +30,34 @@
 <main id="main">
 
 <section class="wrap cover pt-56 pb-0">
-<div class="cover-decor" aria-hidden="true"><div class="cover-decor__ring spin-slow"></div><div class="cover-decor__disc"></div><div class="cover-decor__dot float-a"></div></div>
+<div class="cover-illus cover-illus--ev" aria-hidden="true">
+<svg viewBox="0 0 280 280" fill="none">
+  <circle class="ci-ring" cx="140" cy="140" r="128"/>
+  <circle class="ci-disc" cx="140" cy="148" r="92"/>
+  <!-- cable and plug -->
+  <path class="ev-cable" d="M6 268C32 252 36 226 62 210"/>
+  <g class="ev-plug" transform="translate(10 -5) rotate(-38 70 202)"><rect class="ci-card" x="52" y="192" width="30" height="20" rx="6"/><path class="ev-prong" d="M82 197h7M82 207h7"/></g>
+  <!-- charge gauge -->
+  <circle class="ev-face" cx="134" cy="148" r="62"/>
+  <circle class="ev-track" cx="134" cy="148" r="50"/>
+  <circle class="ev-arc" cx="134" cy="148" r="50" transform="rotate(-90 134 148)"/>
+  <path class="ev-bolt" d="M138 122l-18 30h13l-4 22 18-30h-13z"/>
+  <!-- price chip: full price before plugging in -->
+  <g class="ev-chip">
+    <rect class="ci-card" x="166" y="196" width="92" height="34" rx="17"/>
+    <circle class="ev-chip__badge" cx="183" cy="213" r="11"/>
+    <path class="ev-rupee" d="M178.5 207.5h9M178.5 211h9M181 207.5c3.6 0 5 1.6 5 3.5s-1.6 3.5-5 3.5h-2.5l6 4.5"/>
+    <rect class="ci-skel--s" x="200" y="207" width="44" height="5" rx="2.5"/>
+    <rect class="ci-skel" x="200" y="216" width="30" height="5" rx="2.5"/>
+  </g>
+  <!-- verified charger pin -->
+  <g class="ci-bot">
+    <path class="ci-bubble" d="M218 18c17 0 30 13 30 30 0 21-30 46-30 46s-30-25-30-46c0-17 13-30 30-30z"/>
+    <path class="ev-pin-tick" d="M206 48l8 8 16-16"/>
+    <path class="ci-spark" d="M258 74c1.2 6 3 7.8 9 9-6 1.2-7.8 3-9 9-1.2-6-3-7.8-9-9 6-1.2 7.8-3 9-9z"/>
+  </g>
+</svg>
+</div>
 <a class="back-link" href="index.html">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 8H3M7.5 3.5 3 8l4.5 4.5"></path></svg>All work</a>
 <div class="eyebrow"><span class="badge">01</span><span>Case study / Mobile app</span></div>
