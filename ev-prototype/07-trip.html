@@ -1,0 +1,66 @@
+<!doctype html><html><head><meta charset="utf-8"><title>EVCS</title><link rel="stylesheet" href="base.css"><style>[data-go],[data-toast],[data-sel],[data-tog]{cursor:pointer}
+.rip{position:fixed;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(198,244,50,.5);border:2px solid rgba(15,23,20,.6);pointer-events:none;z-index:999;animation:rip .65s ease-out forwards}
+@keyframes rip{from{transform:scale(.35);opacity:1}to{transform:scale(1.35);opacity:0}}.hdr{position:absolute;top:50px;left:0;right:0;height:56px;display:flex;align-items:center;gap:12px;padding:0 16px;z-index:10}
+.hdr .b{width:42px;height:42px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center}
+.hdr h2{font-size:18px;font-weight:600;flex:1}
+.content{position:absolute;top:112px;left:16px;right:16px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cta{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:12px 16px 34px;z-index:12}
+.cta .pay{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.mini{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.mini .ic{width:42px;height:42px;border-radius:13px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.mini b{display:block;font-size:15px}
+.mini span{font-size:13px;color:var(--muted)}
+
+.hdr .av2{width:42px;height:42px;border-radius:14px;background:var(--ink);color:var(--lime);display:grid;place-items:center}
+.hdr small{display:block;font-size:12.5px;color:var(--muted);font-weight:500}
+.chat{position:absolute;top:116px;left:16px;right:16px;display:flex;flex-direction:column;gap:10px}
+.me{align-self:flex-end;max-width:82%;background:var(--ink);color:#fff;padding:11px 14px;border-radius:18px 18px 6px 18px;font-size:15px}
+.ai{align-self:flex-start;max-width:90%;font-size:15px;line-height:1.45}
+.trip{padding:14px;margin-top:2px}
+.tr{display:flex;justify-content:space-between;align-items:baseline}
+.tr b{font-size:17px}
+.route{margin:14px 0 4px;position:relative;padding-left:26px}
+.route::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(var(--line) 0 4px,transparent 4px 8px)}
+.stop{position:relative;padding:5px 0 10px}
+.stop i{position:absolute;left:-26px;top:7px;width:18px;height:18px;border-radius:50%;background:var(--surface);border:2px solid var(--ink)}
+.stop.c i{background:var(--lime);border-color:var(--ink);display:grid;place-items:center}
+.stop b{display:block;font-size:14.5px}.stop span{font-size:13px;color:var(--muted)}
+.stop .sb{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+.stop .sb em{font-style:normal;font-size:12px;font-weight:600;padding:3px 8px;border-radius:8px;background:var(--soft)}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.acts .btn{height:44px;font-size:14.5px;border-radius:13px}
+.compose{position:absolute;left:16px;right:16px;bottom:96px;height:54px;border-radius:999px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 7px 0 18px;color:var(--muted)}
+.send{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--lime);display:grid;place-items:center}
+</style></head><body><div class="status"><span>9:41</span><span class="r"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1.2 4.6a9.6 9.6 0 0 1 13.6 0l-1.4 1.4a7.6 7.6 0 0 0-10.8 0z" fill="currentColor"/></svg><span class="bat"></span></span></div>
+<div class="hdr"><div class="av2"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div><div style="flex:1"><h2 style="font-size:17px">Ask EVCS</h2><small>Trip planner</small></div></div>
+<div class="chat">
+ <div class="me">Plan Hyderabad to Vijayawada tomorrow in my Nexon EV. I’ll leave with 90%.</div>
+ <div class="ai">One quick stop is enough. I picked chargers that worked in the last hour and fit your CCS2 port.</div>
+ <div class="card trip">
+  <div class="tr"><b>275 km · 1 stop</b><span class="muted" style="font-size:13px">≈ 5 h 20 min</span></div>
+  <div class="route">
+   <div class="stop"><i></i><b>Hyderabad</b><span>Leave 9:00 AM · 90%</span></div>
+   <div class="stop c"><i></i><b>Suryapet · VoltPoint Highway Hub</b><span>Arrive 22% · charge to 90% · 32 min</span><div class="sb"><em style="background:var(--green-bg);color:var(--green)">Verified working</em><em>≈ ₹385</em><em>Café · Restroom</em></div></div>
+   <div class="stop"><i></i><b>Vijayawada</b><span>Arrive 2:20 PM · ≈ 20% left</span></div>
+  </div>
+  <div class="acts"><div class="btn ghost" data-go="01-map">View on map</div><div class="btn dark" data-toast="Slot reserved at Suryapet for 11:35 AM">Reserve &amp; go</div></div>
+ </div>
+</div>
+<div class="compose" data-toast="This prototype shows one example trip"><span>Ask about a trip or charger…</span><div class="send"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="m3 11 18-8-8 18-2-8z"/></svg></div></div>
+<div class="tabbar"><div class="tab" data-go="01-map"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Charge</div><div class="tab on" data-go="07-trip"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Trips</div><div class="tab" data-go="05b-receipt"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Sessions</div><div class="tab" data-go="00c-car"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px;"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Profile</div></div><div class="home"></div><script>
+(function(){
+ var P = window.parent !== window;
+ function go(t){ if(P) parent.postMessage({go:t},'*'); }
+ function toast(m){ if(P) parent.postMessage({toast:m},'*'); }
+ window.__go=go; window.__toast=toast;
+ document.addEventListener('pointerdown',function(e){var r=document.createElement('i');r.className='rip';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){r.remove()},650)});
+ document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-go],[data-toast],[data-sel],[data-tog]'); if(!el) return;
+  if(el.dataset.sel){document.querySelectorAll('[data-sel="'+el.dataset.sel+'"]').forEach(function(x){x.classList.remove('on')}); el.classList.add('on');}
+  if(el.hasAttribute('data-tog')) el.classList.toggle('on');
+  if(el.dataset.toast) toast(el.dataset.toast);
+  if(el.dataset.go) go(el.dataset.go);
+ });
+})();
+</script><script></script></body></html>

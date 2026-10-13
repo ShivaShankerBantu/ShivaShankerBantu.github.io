@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EVCS case study | Shiva Shanker Bantu</title>
+<meta name="description" content="Case study 01: EVCS, an EV charging app for India that only sends drivers to chargers that work, shows the full price upfront and takes UPI per session.">
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.setAttribute('data-theme',t);d.classList.add('js')})();</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shiva Shanker Bantu, UX Portfolio">
+<meta property="og:title" content="EVCS case study">
+<meta property="og:description" content="An EV charging app for India that only sends drivers to chargers that work, shows the full price upfront and takes UPI per session.">
+<meta property="og:url" content="https://shivashankerbantu.github.io/ev-charging.html">
+<meta property="og:image" content="https://shivashankerbantu.github.io/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="UX portfolio of Shiva Shanker Bantu">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://shivashankerbantu.github.io/ev-charging.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/css/styles.css?v=17">
+<script src="assets/js/main.js?v=10"></script>
+</head>
+<body class="page-ev">
+<site-header></site-header>
+
+<main id="main">
+
+<section class="wrap cover pt-56 pb-0">
+<div class="cover-decor" aria-hidden="true"><div class="cover-decor__ring spin-slow"></div><div class="cover-decor__disc"></div><div class="cover-decor__dot float-a"></div></div>
+<a class="back-link" href="index.html">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 8H3M7.5 3.5 3 8l4.5 4.5"></path></svg>All work</a>
+<div class="eyebrow"><span class="badge">01</span><span>Case study / Mobile app</span></div>
+<h1 class="h-display">EVCS</h1>
+<p class="lede">An EV charging app for India that sends drivers only to chargers that actually work, shows the full price before they plug in, and lets them pay per session by UPI.</p>
+<div class="device-stage device-stage--fade device-stage--phones cover-art--ev mt-48" data-carousel="EVCS app screens">
+<div class="phone-mock phone-mock--low"><div class="phone-mock__body"><div class="phone-mock__screen"><img src="assets/img/ev/welcome.webp" alt="EVCS welcome screen" width="780" height="1688" fetchpriority="high" data-zoom></div></div></div>
+<div class="phone-mock"><div class="phone-mock__body"><div class="phone-mock__screen"><img src="assets/img/ev/map.webp" alt="Map of nearby chargers with prices and live status" width="780" height="1688" data-zoom></div></div></div>
+<div class="phone-mock"><div class="phone-mock__body"><div class="phone-mock__screen"><img src="assets/img/ev/station.webp" alt="Station details with verified status and full price" width="780" height="1688" data-zoom></div></div></div>
+<div class="phone-mock phone-mock--low"><div class="phone-mock__body"><div class="phone-mock__screen"><img src="assets/img/ev/live.webp" alt="Live charging screen" width="780" height="1688" data-zoom></div></div></div>
+</div>
+</section>
+
+<section class="wrap pt-0 pb-0">
+<div class="facts mt-40">
+<div><div class="kicker">Role</div><div class="fact__value">Sole designer</div></div>
+<div><div class="kicker">Platform</div><div class="fact__value">Mobile app, iOS and Android</div></div>
+<div><div class="kicker">Users</div><div class="fact__value">EV drivers in India</div></div>
+<div><div class="kicker">Timeline</div><div class="fact__value">15 weeks in 2019, revisited in 2026</div></div>
+</div>
+<p class="facts-note">A personal project. I designed the first version in 2019. In 2026 I rebuilt it from scratch around what EV drivers in India struggle with today: new research, a new identity and every screen redesigned.</p>
+<div class="pdf-row mt-28">
+<a class="btn btn--accent" href="ev-prototype/" target="_blank" rel="noopener">
+<svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="1.5" width="8" height="13" rx="2"></rect><path d="M7 12.5h2"></path></svg>Try the prototype</a>
+<span class="note-15">Clickable, from sign-up to receipt, including a failed charge and a road trip.</span>
+</div>
+</section>
+
+<section class="wrap split pt-88 pb-0">
+<div class="split__aside"><h2 class="h2">The problem</h2></div>
+<div class="split__main">
+<p class="lead-21">In 2019 the problem was simple: there weren't enough chargers. By 2026 India has tens of thousands of public chargers, but drivers still can't trust them. A charger the app shows as available is often broken, every network wants its own app and wallet, and the price only becomes clear after you plug in.</p>
+<p class="p-follow">So the question changed from “where is a charger?” to “which charger will actually work, and what will it cost me?”</p>
+</div>
+</section>
+
+<section class="wrap pt-88 pb-0">
+<h2 class="h2">What the research shows</h2>
+<p class="intro">In 2026 I reviewed the main charging apps in India, their recent app store reviews, and published reports on the charging network.</p>
+<div class="row row--16 mt-32" data-stagger>
+<div class="tile tile--320 stat"><div class="stat__value">1 in 2</div><p>public charging stations in India were offline in August 2025.</p><a class="stat__src" href="https://evdrive.in/india-ev-charging-network-battle/" target="_blank" rel="noopener">Redseer, via EVDrive</a></div>
+<div class="tile tile--320 stat"><div class="stat__value">17–20</div><p>apps a driver may juggle to find and pay for a working charger.</p><a class="stat__src" href="https://ackodrive.com/news/app-fatigue-and-payment-friction-the-hidden-barriers-to-seamless-ev-charging-in-india/" target="_blank" rel="noopener">Tata Motors, via AckoDrive</a></div>
+<div class="tile tile--320 stat"><div class="stat__value">₹100</div><p>typical minimum wallet top-up, in each app, before you can charge.</p><a class="stat__src" href="https://thecore.in/business/indian-ev-owners-forced-hundreds-mobile-apps-heres-why-2386520" target="_blank" rel="noopener">The Core</a></div>
+<div class="tile tile--320 stat"><div class="stat__value">84%</div><p>of chargers checked in parts of Delhi weren't working, in a 2024 study.</p><a class="stat__src" href="https://www.evinfrastructurenews.com/ev-regulations/india-needs-more-reliable-affordable-ev-charging-to-boost-adoption-ieefa" target="_blank" rel="noopener">IEEFA, via EV Infrastructure News</a></div>
+</div>
+<p class="note-15 mt-28">App store reviews kept repeating the same complaints: sessions that fail to start or stop halfway, money stuck in wallets, slow refunds and support tickets left open for weeks.</p>
+</section>
+
+<section class="wrap pt-88 pb-0">
+<h2 class="h2">Process</h2>
+<div class="process-line mt-32" data-process-line>
+<ol class="process-line__steps">
+<li><span class="process-line__name">Discover</span><span class="process-line__note">2019: interviews with 10+ EV drivers</span></li>
+<li><span class="process-line__name">Define</span><span class="process-line__note">2026: live apps, reviews and reports</span></li>
+<li><span class="process-line__name">Ideate</span><span class="process-line__note">Journey, user flow and app structure</span></li>
+<li><span class="process-line__name">Design</span><span class="process-line__note">New identity, 12 screens, prototype</span></li>
+<li><span class="process-line__name">Test</span><span class="process-line__note">2019: tested with 5 users</span></li>
+</ol>
+</div>
+</section>
+
+<section class="wrap pt-88 pb-0">
+<h2 class="h2">Who it's for</h2>
+<p class="intro">Three personas built from the 2019 interviews and the 2026 research.</p>
+<div class="row mt-32" data-stagger>
+<div class="card persona persona--3">
+<div class="kicker">Persona 1 / Cab driver</div>
+<div class="persona__name">Ravi</div>
+<p class="persona__text">Drives 200 km a day for a ride-hailing app in Hyderabad. Every hour lost at a broken charger is an hour without fares.</p>
+<div class="persona__label">Pain points</div>
+<ul class="ul-muted"><li>Drives to chargers the app says are free, and finds them broken</li><li>Waits in queues without knowing for how long</li><li>Has money stuck in several wallets</li></ul>
+</div>
+<div class="card persona persona--3">
+<div class="kicker">Persona 2 / IT professional</div>
+<div class="persona__name">Priya</div>
+<p class="persona__text">Lives in an apartment where she can't install a charger, so she depends on public ones every week.</p>
+<div class="persona__label">Pain points</div>
+<ul class="ul-muted"><li>Only sees the real price after charging</li><li>Sessions that fail halfway, with slow refunds</li><li>Isn't sure which connector fits her car</li></ul>
+</div>
+<div class="card persona persona--3">
+<div class="kicker">Persona 3 / Retired, road trips</div>
+<div class="persona__name">Mr. Rao</div>
+<p class="persona__text">Drives to see family in other cities. Comfortable with UPI, but not with an account and a wallet in every app.</p>
+<div class="persona__label">Pain points</div>
+<ul class="ul-muted"><li>Worries about finding a working charger on the highway</li><li>Finds wallet top-ups and refunds confusing</li><li>Wants to plan his stops before he leaves</li></ul>
+</div>
+</div>
+</section>
+
+<section class="wrap split pt-88 pb-0">
+<div class="split__aside"><h2 class="h2">How the design answers it</h2></div>
+<div class="split__main rows">
+<div><div class="rows__title">Verified working, not just “available”</div><div class="rows__text">Each charger shows when it last completed a charge and how often sessions succeed. Drivers confirm it after every session, which keeps the badge honest.</div></div>
+<div><div class="rows__title">One app across networks</div><div class="rows__text">Chargers from every network on one map, and you can browse without creating an account.</div></div>
+<div><div class="rows__title">No wallets</div><div class="rows__text">Pay per session by UPI. You approve a ₹450 block, only the energy you use is charged, and the rest is released automatically.</div></div>
+<div><div class="rows__title">The full price, upfront</div><div class="rows__text">Price per kWh including GST, plus the cost and time for your car, before you plug in. Idle fees are explained before they start.</div></div>
+<div><div class="rows__title">Your car sets the filters</div><div class="rows__text">Add your car once, and you only see connectors that fit it.</div></div>
+<div><div class="rows__title">A plan for when it fails</div><div class="rows__text">If a session fails, nothing is charged, the block is released, and the bay is flagged for other drivers.</div></div>
+</div>
+</section>
+
+<section class="wrap pt-96 pb-0">
+<h2 class="h2">Visual direction</h2>
+<p class="intro">Before any screens, a mood board set the feel: calm at night, one electric accent, and status you can read at a glance. Everything on it was made for this project.</p>
+<div class="frame shot mt-32"><img src="assets/img/ev/moodboard.webp" alt="EVCS mood board: night mood, light trails, three words, colour story, type, UI kit" width="2400" height="1500" loading="lazy" data-zoom style="display:block;width:100%;height:auto"></div>
+</section>
+
+<section class="wrap split pt-88 pb-0">
+<div class="split__aside"><h2 class="h2">A new identity</h2></div>
+<div class="split__main">
+<p class="lead-21">The 2019 logo was redrawn on a proper grid. The map pin and lightning bolt stay, with dark ink and a bright volt green, so the green, amber and grey status colours stand out on every screen.</p>
+<div class="frame shot mt-28"><img src="assets/img/ev/brand.webp" alt="EVCS logo, colours and app icon" width="1800" height="840" loading="lazy" data-zoom style="display:block;width:100%;height:auto"></div>
+</div>
+</section>
+
+<section class="wrap media-split pt-96 pb-0">
+<div class="media-split__text">
+<div class="eyebrow"><span class="badge">A</span><span>Find</span></div>
+<h2 class="h2 h2--44 mt-12" style="line-height: 1.05">A charger you can trust</h2>
+<p class="p-sub">Pins show the price and live status at a glance, and the filters start with your car's connector. The station page answers the questions drivers ask before they drive there: does it work right now, what will it cost my car, and which bay fits?</p>
+</div>
+<div class="media-split__stage phone-stage" data-carousel="Map and station screens">
+<div class="phone phone--240 shot"><img src="assets/img/ev/map.webp" alt="Map of nearby chargers with prices and live status" width="780" height="1688" loading="lazy" data-zoom></div>
+<div class="phone phone--240 shot"><img src="assets/img/ev/station.webp" alt="Station details with verified status, full price and connectors" width="780" height="1688" loading="lazy" data-zoom></div>
+</div>
+</section>
+
+<section class="wrap pt-96 pb-0">
+<div class="eyebrow"><span class="badge">B</span><span>Charge</span></div>
+<h2 class="h2 h2--44 mt-12">Reserve, charge and pay, without a wallet</h2>
+<p class="intro">A free reservation with a grace period, a QR scan to start, a UPI block instead of a top-up, and a receipt that splits out the GST.</p>
+<div class="phone-stage mt-32" data-stagger data-carousel="Charging screens">
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/reserve.webp" alt="Reserve a slot screen" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Reserve a slot</div></div>
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/start.webp" alt="Start charging and pay by UPI screen" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Start and pay</div></div>
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/live.webp" alt="Live charging screen" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Live charging</div></div>
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/receipt.webp" alt="Receipt with GST breakdown" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Receipt</div></div>
+</div>
+</section>
+
+<section class="wrap media-split pt-96 pb-0">
+<div class="media-split__text">
+<div class="eyebrow"><span class="badge">C</span><span>When it goes wrong, and road trips</span></div>
+<h2 class="h2 h2--44 mt-12" style="line-height: 1.05">Designed for the bad day too</h2>
+<p class="p-sub">When a charger drops a session, the driver sees straight away that nothing was charged and where their money is, and gets a working bay one tap away. Ask EVCS, an AI trip planner, plans stops along a route using only chargers that are verified working.</p>
+</div>
+<div class="media-split__stage phone-stage" data-carousel="Failed session and trip planner screens">
+<div class="phone phone--240 shot"><img src="assets/img/ev/failed.webp" alt="Failed session screen with refund status" width="780" height="1688" loading="lazy" data-zoom></div>
+<div class="phone phone--240 shot"><img src="assets/img/ev/trip.webp" alt="Ask EVCS trip planner screen" width="780" height="1688" loading="lazy" data-zoom></div>
+</div>
+</section>
+
+<section class="wrap pt-96 pb-0">
+<div class="eyebrow"><span class="badge">D</span><span>First run</span></div>
+<h2 class="h2 h2--44 mt-12">Three steps, or none</h2>
+<p class="intro">Drivers already have too many charging apps, so signing up is short: a phone number, a code read from SMS, and your car. Or skip it all and browse the map.</p>
+<div class="phone-stage mt-32" data-stagger data-carousel="Onboarding screens">
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/welcome.webp" alt="Welcome screen" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Welcome</div></div>
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/sign-in.webp" alt="Phone sign-in screen" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Phone sign-in</div></div>
+<div class="phone-item"><div class="phone phone--476 shot"><img src="assets/img/ev/add-car.webp" alt="Add your car screen" width="780" height="1688" loading="lazy" data-zoom></div><div class="fw-600">Add your car</div></div>
+</div>
+</section>
+
+
+<section class="wrap split pt-96 pb-0">
+<div class="split__aside"><h2 class="h2">Outcome</h2></div>
+<div class="split__main">
+<p class="lead-21">This is a concept, not a shipped product. In 2019, testing with 5 users found the screens easy to understand and the reservation option useful, and asked for prices on every station. The 2026 redesign closes that gap and answers the problems drivers report today.</p>
+<p class="p-follow">Next, I'd test the prototype with EV drivers in Hyderabad, starting with cab drivers, and measure how quickly they find a working charger and whether they trust the “Verified working” badge.</p>
+</div>
+</section>
+
+<section class="wrap pt-96 pb-0">
+<a class="next-link" href="blue-box.html">
+<div><div class="next-link__kicker">Next project / 02</div><div class="next-link__title">Blue Box</div></div>
+<svg width="48" height="48" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5"></path></svg>
+</a>
+</section>
+
+</main>
+
+<site-footer></site-footer>
+</body>
+</html>

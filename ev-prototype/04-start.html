@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8"><title>EVCS</title><link rel="stylesheet" href="base.css"><style>[data-go],[data-toast],[data-sel],[data-tog]{cursor:pointer}
+.rip{position:fixed;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(198,244,50,.5);border:2px solid rgba(15,23,20,.6);pointer-events:none;z-index:999;animation:rip .65s ease-out forwards}
+@keyframes rip{from{transform:scale(.35);opacity:1}to{transform:scale(1.35);opacity:0}}.hdr{position:absolute;top:50px;left:0;right:0;height:56px;display:flex;align-items:center;gap:12px;padding:0 16px;z-index:10}
+.hdr .b{width:42px;height:42px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center}
+.hdr h2{font-size:18px;font-weight:600;flex:1}
+.content{position:absolute;top:112px;left:16px;right:16px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cta{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:12px 16px 34px;z-index:12}
+.cta .pay{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.mini{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.mini .ic{width:42px;height:42px;border-radius:13px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.mini b{display:block;font-size:15px}
+.mini span{font-size:13px;color:var(--muted)}
+
+.scan{margin-top:6px;height:260px;border-radius:24px;background:#0F1714;position:relative;overflow:hidden;display:grid;place-items:center}
+.scan .frame{width:150px;height:150px;position:relative}
+.scan .frame i{position:absolute;width:34px;height:34px;border:4px solid var(--lime)}
+.scan .frame i:nth-of-type(1){left:0;top:0;border-right:0;border-bottom:0;border-radius:12px 0 0 0}
+.scan .frame i:nth-of-type(2){right:0;top:0;border-left:0;border-bottom:0;border-radius:0 12px 0 0}
+.scan .frame i:nth-of-type(3){left:0;bottom:0;border-right:0;border-top:0;border-radius:0 0 0 12px}
+.scan .frame i:nth-of-type(4){right:0;bottom:0;border-left:0;border-top:0;border-radius:0 0 12px 0}
+.scan .qr{position:absolute;inset:26px;background:repeating-conic-gradient(#E9EDE6 0 25%,#0F1714 0 50%) 0 0/16px 16px;border-radius:6px;opacity:.9}
+.scan .ok{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(255,255,255,.1);color:#fff;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:8px;font-size:13.5px;backdrop-filter:blur(8px)}
+.scan .ok b{color:var(--lime)}
+.lim{margin-top:14px;padding:14px 16px}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;background:var(--soft);padding:4px;border-radius:14px}
+.seg div{height:38px;border-radius:11px;display:grid;place-items:center;font-weight:600;font-size:14px;color:var(--muted)}
+.seg .on{background:var(--surface);color:var(--ink);box-shadow:0 2px 8px -4px rgba(0,0,0,.25)}
+.payrow{display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px 14px}
+.upi{width:42px;height:42px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font:700 12px Geist;letter-spacing:.02em}
+.payrow div b{display:block;font-size:15px}.payrow div span{font-size:13px;color:var(--muted)}
+
+.scrim{position:absolute;inset:0;background:rgba(15,23,20,.45);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-radius:26px 26px 0 0;padding:10px 18px 40px;z-index:41;transform:translateY(105%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.on-sheet .scrim{opacity:1}.on-sheet .sheet{transform:none}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 18px}
+.upiapp{display:flex;gap:12px;align-items:center}
+.upiapp b{display:block;font-size:17px}.upiapp span{font-size:13.5px;color:var(--muted)}
+.wait{display:flex;align-items:center;gap:10px;margin-top:18px;padding:14px;border-radius:16px;background:var(--soft);font-weight:500}
+.wait.ok{background:var(--green-bg);color:var(--green)}
+.spin{width:20px;height:20px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--ink);animation:sp 0.8s linear infinite;flex:none}
+.wait.ok .spin{animation:none;border-color:var(--green);background:var(--green)}
+@keyframes sp{to{transform:rotate(360deg)}}
+.fine{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.45}
+</style></head><body><div class="status"><span>9:41</span><span class="r"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1.2 4.6a9.6 9.6 0 0 1 13.6 0l-1.4 1.4a7.6 7.6 0 0 0-10.8 0z" fill="currentColor"/></svg><span class="bat"></span></span></div>
+<div class="hdr"><div class="b" data-go="03-reserve"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="m15 5-7 7 7 7"/></svg></div><h2>Start charging</h2></div>
+<div class="content">
+ <div class="scan"><div class="frame"><div class="qr"></div><i></i><i></i><i></i><i></i></div><div class="ok"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Found <b>Bay 1 · CCS2</b> · plug in your car</span></div></div>
+ <div class="card lim"><div class="lbl">Stop charging at</div><div class="seg"><div data-sel="s">70%</div><div data-sel="s" class="on">80%</div><div data-sel="s">90%</div><div data-sel="s">100%</div></div><div class="muted" style="font-size:13px;margin-top:10px">Estimated ₹410 · ready around 6:38 PM</div></div>
+ <div class="card payrow" data-toast="Paying with priya@upi. You can change this in Profile."><div class="upi">UPI</div><div style="flex:1"><b>Pay with UPI</b><span>priya@upi · ₹450 blocked, not charged</span></div><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="m9 6 6 6-6 6"/></svg></div>
+ <div class="muted" style="font-size:12.5px;margin-top:10px;display:flex;gap:6px"><svg class="i" viewBox="0 0 24 24" style="width:15px;height:15px;"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>You pay only for the energy used. The unused amount is released as soon as you stop.</span></div>
+</div>
+<div class="cta"><div class="btn primary" id="go"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Start charging</div></div>
+<div class="scrim" id="scrim"></div><div class="sheet" id="sheet"><div class="grab"></div><div class="upiapp"><span class="upi">UPI</span><div><b>Approve ₹450 in your UPI app</b><span>priya@upi · it’s a block, not a payment</span></div></div><div class="wait" id="wait"><i class="spin"></i><span id="wt">Waiting for approval in your UPI app…</span></div><div class="fine">Only the energy you use is charged. The rest is released automatically when charging stops.</div></div>
+<div class="home"></div><script>
+(function(){
+ var P = window.parent !== window;
+ function go(t){ if(P) parent.postMessage({go:t},'*'); }
+ function toast(m){ if(P) parent.postMessage({toast:m},'*'); }
+ window.__go=go; window.__toast=toast;
+ document.addEventListener('pointerdown',function(e){var r=document.createElement('i');r.className='rip';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){r.remove()},650)});
+ document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-go],[data-toast],[data-sel],[data-tog]'); if(!el) return;
+  if(el.dataset.sel){document.querySelectorAll('[data-sel="'+el.dataset.sel+'"]').forEach(function(x){x.classList.remove('on')}); el.classList.add('on');}
+  if(el.hasAttribute('data-tog')) el.classList.toggle('on');
+  if(el.dataset.toast) toast(el.dataset.toast);
+  if(el.dataset.go) go(el.dataset.go);
+ });
+})();
+</script><script>var q=new URLSearchParams(location.search);var bay=q.get('bay')==='2'?'2':'1';
+document.querySelector('.scan .ok b').textContent='Bay '+bay+' · CCS2';
+if(q.get('r')) setTimeout(function(){__toast('Slot reserved for 6:00 PM. Scan the charger when you arrive.')},300);
+document.getElementById('go').addEventListener('click',function(){
+ document.body.classList.add('on-sheet');
+ setTimeout(function(){var w=document.getElementById('wait');w.classList.add('ok');document.getElementById('wt').textContent='Approved · ₹450 blocked';},1700);
+ setTimeout(function(){__go('05-live'+(bay==='2'?'?fail=1':''));},2700);
+});
+document.getElementById('scrim').addEventListener('click',function(){document.body.classList.remove('on-sheet')});</script></body></html>

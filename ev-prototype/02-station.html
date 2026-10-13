@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><title>EVCS</title><link rel="stylesheet" href="base.css"><style>[data-go],[data-toast],[data-sel],[data-tog]{cursor:pointer}
+.rip{position:fixed;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(198,244,50,.5);border:2px solid rgba(15,23,20,.6);pointer-events:none;z-index:999;animation:rip .65s ease-out forwards}
+@keyframes rip{from{transform:scale(.35);opacity:1}to{transform:scale(1.35);opacity:0}}
+.hero{position:absolute;top:0;left:0;right:0;height:290px;background:radial-gradient(120% 90% at 70% 10%,#2A3A33 0%,#0F1714 70%);overflow:hidden}
+.hero .glow{position:absolute;right:-30px;top:60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(198,244,50,.35),transparent 65%)}
+.hero svg.chg{position:absolute;right:30px;top:96px}
+.status{color:#fff}
+.hb{position:absolute;top:58px;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.12);display:grid;place-items:center;color:#fff;backdrop-filter:blur(6px)}
+.hb.fav.on svg{fill:var(--lime);stroke:var(--lime)}
+.net{position:absolute;left:20px;bottom:24px;color:#fff}
+.net small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;font-weight:600}
+.net h1{font-size:24px;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin-top:6px;max-width:250px}
+.body{position:absolute;top:262px;left:0;right:0;bottom:0;background:var(--bg);border-radius:24px 24px 0 0;padding:18px 16px 0;overflow:hidden}
+.rel{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:var(--green-bg);color:#0E5F33}
+.rel .ic{width:40px;height:40px;border-radius:12px;background:#fff;display:grid;place-items:center;color:var(--green)}
+.rel b{display:block;font-size:15px}
+.rel span{font-size:13px;opacity:.85}
+.sec{margin-top:12px;padding:14px 16px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pr{display:flex;align-items:baseline;gap:6px;margin-top:6px}
+.pr b{font-size:28px;letter-spacing:-.02em}
+.est{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.est div{background:var(--soft);border-radius:14px;padding:10px 12px}
+.est small{display:block;font-size:12px;color:var(--muted)}
+.est b{font-size:16px}
+.note{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--muted);margin-top:10px}
+.con{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.con:first-of-type{border-top:0}
+.con .pl{width:38px;height:38px;border-radius:12px;background:var(--soft);display:grid;place-items:center}
+.con .nm{flex:1}
+.con .nm b{display:block;font-size:15px}
+.con .nm span{font-size:12.5px;color:var(--muted)}
+.fit{font-size:11.5px;font-weight:600;color:var(--lime-ink);background:var(--lime);padding:1px 6px;border-radius:5px;margin-left:4px;white-space:nowrap}
+.cta{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:12px 16px 34px;z-index:12}
+.cta .pay{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.cta .g{display:grid;grid-template-columns:56px 1fr;gap:10px}
+</style></head><body><div class="hero"><div class="glow"></div><svg class="chg" width="120" height="150" viewBox="0 0 120 150"><rect x="20" y="10" width="62" height="130" rx="14" fill="#1C2924" stroke="#3A4C44"/><rect x="31" y="24" width="40" height="26" rx="6" fill="#0F1714" stroke="#C6F432" stroke-opacity=".6"/><path d="M53 29l-7 10h5l-2 7 7-10h-5z" fill="#C6F432"/><rect x="31" y="60" width="40" height="5" rx="2.5" fill="#C6F432"/><path d="M82 70c20 0 24 14 24 30v26" stroke="#C6F432" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/><rect x="98" y="122" width="16" height="22" rx="5" fill="#C6F432"/></svg></div><div class="status"><span>9:41</span><span class="r"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1.2 4.6a9.6 9.6 0 0 1 13.6 0l-1.4 1.4a7.6 7.6 0 0 0-10.8 0z" fill="currentColor"/></svg><span class="bat"></span></span></div>
+<div class="hb" style="left:16px" data-go="01-map"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="m15 5-7 7 7 7"/></svg></div><div class="hb fav" data-tog style="right:16px"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
+<div class="net" style="top:150px;bottom:auto"><small>VoltPoint network</small><h1>Madhapur Metro Parking</h1></div>
+<div class="body">
+ <div class="rel"><div class="ic"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><div><b>Verified working</b><span>Last charge 12 min ago · 97% success rate</span></div></div>
+ <div class="card sec">
+  <div class="lbl">Price, all-inclusive</div>
+  <div class="pr"><b>₹19.50</b><span class="muted">per kWh · incl. 18% GST</span></div>
+  <div class="est"><div><small>Nexon EV · 10→80%</small><b>≈ ₹410</b></div><div><small>Charging time</small><b>≈ 38 min</b></div></div>
+  <div class="note"><svg class="i" viewBox="0 0 24 24" style="width:15px;height:15px;"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Idle fee ₹2/min only after a 10-min grace period</div>
+ </div>
+ <div class="card sec" style="padding:8px 16px">
+  <div class="con"><div class="pl"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></svg></div><div class="nm"><b>CCS2 · Bay 1</b><span>60 kW DC<span class="fit">Fits your car</span></span></div><span class="badge ok"><span class="dot"></span>Free</span></div>
+  <div class="con"><div class="pl"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></svg></div><div class="nm"><b>CCS2 · Bay 2</b><span>60 kW DC<span class="fit">Fits your car</span></span></div><span class="badge warn"><span class="dot"></span>Busy · 14 min</span></div>
+  <div class="con"><div class="pl"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></svg></div><div class="nm"><b>Type 2 · Bay 3</b><span>22 kW AC</span></div><span class="badge bad"><span class="dot"></span>Offline</span></div>
+ </div>
+</div>
+<div class="cta"><div class="pay"><svg class="i" viewBox="0 0 24 24" style="width:15px;height:15px;"><path d="m5 12 4.5 4.5L19 7"/></svg>Pay per session with UPI · no wallet top-up</div><div class="g"><div class="btn ghost" data-toast="Opening directions in Google Maps"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="m3 11 18-8-8 18-2-8z"/></svg></div><div class="btn dark" data-go="03-reserve">Reserve a slot</div></div></div>
+<div class="home"></div><script>
+(function(){
+ var P = window.parent !== window;
+ function go(t){ if(P) parent.postMessage({go:t},'*'); }
+ function toast(m){ if(P) parent.postMessage({toast:m},'*'); }
+ window.__go=go; window.__toast=toast;
+ document.addEventListener('pointerdown',function(e){var r=document.createElement('i');r.className='rip';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){r.remove()},650)});
+ document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-go],[data-toast],[data-sel],[data-tog]'); if(!el) return;
+  if(el.dataset.sel){document.querySelectorAll('[data-sel="'+el.dataset.sel+'"]').forEach(function(x){x.classList.remove('on')}); el.classList.add('on');}
+  if(el.hasAttribute('data-tog')) el.classList.toggle('on');
+  if(el.dataset.toast) toast(el.dataset.toast);
+  if(el.dataset.go) go(el.dataset.go);
+ });
+})();
+</script><script></script></body></html>

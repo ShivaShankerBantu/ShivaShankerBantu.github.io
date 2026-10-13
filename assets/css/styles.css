@@ -811,3 +811,19 @@ html.lightbox-open { overflow: hidden; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal-ready .reveal:not(.is-in) { opacity: 1; }
 }
+
+/* ---------- EVCS case study ---------- */
+.cover-art--ev { --cover-a: #F4F8E4; --cover-b: #DCEBA6; } /* EVCS volt green */
+:root[data-theme="dark"] .cover-art--ev { --cover-a: #2A3418; --cover-b: #151B0C; }
+.row--3 > .project-card { flex-basis: 320px; }
+.persona--3 { flex-basis: 320px; }
+.stat { display: flex; flex-direction: column; }
+.stat__value { font-family: var(--f-head); font-weight: 700; font-size: 48px; line-height: 1; letter-spacing: -0.02em; }
+.stat p { margin: 12px 0 0; }
+.stat__src { margin-top: auto; padding-top: 14px; font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.stat__src:hover { color: var(--accent); }
+.stat { flex: 1 1 240px; }
+/* EVCS home card: bigger, overlapping phones that run off the bottom of the cover */
+.cover-art--ev.phones-cover img { width: 36cqw; margin: 9cqw -3cqw 0; position: relative; }
+.cover-art--ev.phones-cover img:nth-child(1) { z-index: 2; }
+.cover-art--ev.phones-cover img:nth-child(2), .cover-art--ev.phones-cover img:nth-child(3) { margin-top: 16cqw; }

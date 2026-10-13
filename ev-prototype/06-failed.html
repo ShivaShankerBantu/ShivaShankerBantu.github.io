@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><title>EVCS</title><link rel="stylesheet" href="base.css"><style>[data-go],[data-toast],[data-sel],[data-tog]{cursor:pointer}
+.rip{position:fixed;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(198,244,50,.5);border:2px solid rgba(15,23,20,.6);pointer-events:none;z-index:999;animation:rip .65s ease-out forwards}
+@keyframes rip{from{transform:scale(.35);opacity:1}to{transform:scale(1.35);opacity:0}}.hdr{position:absolute;top:50px;left:0;right:0;height:56px;display:flex;align-items:center;gap:12px;padding:0 16px;z-index:10}
+.hdr .b{width:42px;height:42px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center}
+.hdr h2{font-size:18px;font-weight:600;flex:1}
+.content{position:absolute;top:112px;left:16px;right:16px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cta{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:12px 16px 34px;z-index:12}
+.cta .pay{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.mini{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.mini .ic{width:42px;height:42px;border-radius:13px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.mini b{display:block;font-size:15px}
+.mini span{font-size:13px;color:var(--muted)}
+
+.top{position:absolute;top:118px;left:16px;right:16px;text-align:center}
+.wi{width:72px;height:72px;border-radius:24px;background:var(--red-bg);color:var(--red);display:grid;place-items:center;margin:0 auto}
+.top h1{font-size:24px;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
+.top p{color:var(--muted);margin-top:8px;font-size:15px}
+.refund{position:absolute;top:300px;left:16px;right:16px;padding:16px}
+.tl{margin-top:12px;position:relative}
+.tl .s{display:flex;gap:12px;padding-bottom:14px;position:relative}
+.tl .s:not(:last-child)::before{content:'';position:absolute;left:11px;top:24px;bottom:0;width:2px;background:var(--line)}
+.tl .d{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--green);color:#fff}
+.tl .d.p{background:var(--surface);border:2px solid var(--line)}
+.tl b{display:block;font-size:14.5px}.tl span{font-size:13px;color:var(--muted)}
+.rep{position:absolute;top:548px;left:16px;right:16px;display:flex;gap:12px;align-items:center;padding:14px;border-radius:18px;background:var(--soft)}
+.rep .ic2{width:40px;height:40px;border-radius:12px;background:var(--surface);display:grid;place-items:center;flex:none}
+.rep b{display:block;font-size:14.5px}.rep span{font-size:13px;color:var(--muted)}
+.cta .g{display:grid;gap:10px}
+</style></head><body><div class="status"><span>9:41</span><span class="r"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1.2 4.6a9.6 9.6 0 0 1 13.6 0l-1.4 1.4a7.6 7.6 0 0 0-10.8 0z" fill="currentColor"/></svg><span class="bat"></span></span></div>
+<div class="top"><div class="wi"><svg class="i" viewBox="0 0 24 24" style="width:32px;height:32px;"><path d="M13 2 9.5 6.7M7.6 9.2 4 14h7l-1 8 4-5.3M16.4 12.8 19 10h-6l.6-4.6"/><path d="m3 3 18 18"/></svg></div><h1>Charging stopped at Bay 2</h1><p>The charger lost connection 2 min in. You won’t pay for this attempt.</p></div>
+<div class="card refund"><div class="lbl">Your ₹450</div>
+ <div class="tl">
+  <div class="s"><div class="d"><svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:3"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><b>Nothing charged</b><span>0.4 kWh delivered · ₹0</span></div></div>
+  <div class="s"><div class="d"><svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:3"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><b>Block released</b><span>Sent back to priya@upi just now</span></div></div>
+  <div class="s"><div class="d p"></div><div><b>Back in your account</b><span>Usually within a few minutes</span></div></div>
+ </div>
+</div>
+<div class="rep"><div class="ic2"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div><div><b>Bay 2 marked offline for other drivers</b><span>We’ve told VoltPoint. Thanks for the report.</span></div></div>
+<div class="cta"><div class="g"><div class="btn dark" data-go="04-start"><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Try Bay 1 · free now</div><div class="btn ghost" data-go="01-map">Find another charger</div></div></div>
+<div class="home"></div><script>
+(function(){
+ var P = window.parent !== window;
+ function go(t){ if(P) parent.postMessage({go:t},'*'); }
+ function toast(m){ if(P) parent.postMessage({toast:m},'*'); }
+ window.__go=go; window.__toast=toast;
+ document.addEventListener('pointerdown',function(e){var r=document.createElement('i');r.className='rip';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){r.remove()},650)});
+ document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-go],[data-toast],[data-sel],[data-tog]'); if(!el) return;
+  if(el.dataset.sel){document.querySelectorAll('[data-sel="'+el.dataset.sel+'"]').forEach(function(x){x.classList.remove('on')}); el.classList.add('on');}
+  if(el.hasAttribute('data-tog')) el.classList.toggle('on');
+  if(el.dataset.toast) toast(el.dataset.toast);
+  if(el.dataset.go) go(el.dataset.go);
+ });
+})();
+</script><script></script></body></html>
